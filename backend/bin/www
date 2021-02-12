@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+require('dotenv').config();
 /**
  * Module dependencies.
  */
@@ -7,6 +7,12 @@
 var app = require('../app');
 var debug = require('debug')('backend:server');
 var http = require('http');
+
+// PG database client/connection setup
+const { Pool } = require('pg');
+const dbParams = require('../lib/db.js');
+const db = new Pool(dbParams);
+db.connect();
 
 /**
  * Get port from environment and store in Express.

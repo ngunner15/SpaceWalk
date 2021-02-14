@@ -9,6 +9,7 @@ import {
 import Home from './components/Home';
 import Earth from './components/Earth';
 import Mars from './components/Mars';
+import Venus from './components/Venus';
 
 import './App.css';
 
@@ -20,6 +21,7 @@ function App() {
           <Link to="/">Home</Link>
           <Link to="/earth">Earth</Link>
           <Link to="/mars">Mars</Link>
+          <Link to="/venus">Venus</Link>
         </nav>
         <Switch>
           <Route path="/" exact>
@@ -30,6 +32,9 @@ function App() {
           </Route>
           <Route path="/mars">
             <Mars />
+          </Route>
+          <Route path="/venus">
+            <Venus />
           </Route>
         </Switch>
       </div>

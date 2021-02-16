@@ -1,6 +1,21 @@
-export default function Venus(props) {
+import React, { useState } from "react";
+import ButtonLogin  from "./ButtonLogin";
+import Axios from "axios";
+import Login from "./Login";
+import Admin from "./Admin";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+
+export default function Home(props) {
 
   return (
-    <h1>I am Home</h1>
-  )
+
+      <div>
+        I am Home
+      </div>
+
+  );
 }

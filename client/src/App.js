@@ -11,6 +11,8 @@ import Earth from './components/Earth';
 import Mars from './components/Mars';
 import Venus from './components/Venus';
 import Mercury from "./components/Mercury";
+import Login from "./components/Login";
+import Admin from "./components/Admin";
 
 import './App.css';
 
@@ -24,6 +26,8 @@ function App() {
           <Link to="/mars">Mars</Link>
           <Link to="/venus">Venus</Link>
           <Link to="/mercury">Mercury</Link>
+          <Link to="/login">Login</Link>
+          <h1>HELLO</h1>
         </nav>
         <Switch>
           <Route path="/" exact>
@@ -41,6 +45,8 @@ function App() {
           <Route path="/mercury">
             <Mercury />
           </Route>
+          <Route path="/login"><Login /></Route>
+          <Route path="/admin"> <Admin /></Route>
         </Switch>
       </div>
     </Router>

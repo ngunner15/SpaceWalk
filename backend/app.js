@@ -14,7 +14,7 @@ db.connect();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const adminsRouter = require('./routes/admins');
+// const adminsRouter = require('./routes/admins');
 
 var app = express();
 
@@ -25,9 +25,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/', indexRouter(db));
 app.use('/users', usersRouter);
-app.use('/api/admins', adminsRouter(db));
+// app.use('/api/admins', adminsRouter(db));
 
 module.exports = app;
 

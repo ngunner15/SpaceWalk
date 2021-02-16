@@ -3,24 +3,24 @@
     {
       "bufferView": 2,
       "componentType": 5126,
-      "count": 16422,
+      "count": 3223,
       "max": [
-        2.0000040531158447,
-        0.075631000101566315,
-        1.8306260108947754
+        0.99999946355819702,
+        0.99999821186065674,
+        1
       ],
       "min": [
-        1.9999999949504854e-06,
-        -1.9243700504302979,
-        -0.1693740040063858
+        -0.99999862909317017,
+        -0.99999892711639404,
+        -1
       ],
       "type": "VEC3"
     },
     {
       "bufferView": 2,
-      "byteOffset": 197064,
+      "byteOffset": 38676,
       "componentType": 5126,
-      "count": 16422,
+      "count": 3223,
       "max": [
         1,
         1,
@@ -34,43 +34,25 @@
       "type": "VEC3"
     },
     {
-      "bufferView": 3,
-      "componentType": 5126,
-      "count": 16422,
-      "max": [
-        1,
-        1,
-        0.012281846255064011,
-        1
-      ],
-      "min": [
-        -1,
-        -1,
-        -0.012297357432544231,
-        1
-      ],
-      "type": "VEC4"
-    },
-    {
       "bufferView": 1,
       "componentType": 5126,
-      "count": 16422,
+      "count": 3223,
       "max": [
-        1.2262790203094482,
-        0.99765098094940186
+        1,
+        1
       ],
       "min": [
-        -0.0034970000851899385,
-        -0.0026110000908374786
+        0,
+        0
       ],
       "type": "VEC2"
     },
     {
       "bufferView": 0,
       "componentType": 5125,
-      "count": 97536,
+      "count": 17664,
       "max": [
-        16421
+        3222
       ],
       "min": [
         0
@@ -80,56 +62,54 @@
   ],
   "asset": {
     "extras": {
-      "author": "kongle (https://sketchfab.com/minecraftnorge)",
-      "license": "CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)",
-      "source": "https://sketchfab.com/models/7b14d8d8a5b94626a4b2a8a4455297d6",
+      "author": "Axt (https://sketchfab.com/shooter24994)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/mars-9c7bbc64d8c74acfa9ec344c0fc10e1a",
       "title": "Mars"
     },
-    "generator": "Sketchfab-3.20.7",
+    "generator": "Sketchfab-8.78.0",
     "version": "2.0"
   },
   "bufferViews": [
     {
       "buffer": 0,
-      "byteLength": 390144,
+      "byteLength": 70656,
       "byteOffset": 0,
       "name": "floatBufferViews",
       "target": 34963
     },
     {
       "buffer": 0,
-      "byteLength": 131376,
-      "byteOffset": 390144,
+      "byteLength": 25784,
+      "byteOffset": 70656,
       "byteStride": 8,
       "name": "floatBufferViews",
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 394128,
-      "byteOffset": 521520,
+      "byteLength": 77352,
+      "byteOffset": 96440,
       "byteStride": 12,
-      "name": "floatBufferViews",
-      "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteLength": 262752,
-      "byteOffset": 915648,
-      "byteStride": 16,
       "name": "floatBufferViews",
       "target": 34962
     }
   ],
   "buffers": [
     {
-      "byteLength": 1178400,
+      "byteLength": 173792,
       "uri": "scene.bin"
     }
   ],
+  "extensionsRequired": [
+    "KHR_materials_pbrSpecularGlossiness"
+  ],
+  "extensionsUsed": [
+    "KHR_materials_pbrSpecularGlossiness"
+  ],
   "images": [
     {
-      "uri": "textures/moon_baseColor.jpg"
+      "uri": "textures/Material.002_diffuse.jpeg"
     }
   ],
   "materials": [
@@ -140,34 +120,40 @@
         0,
         0
       ],
-      "name": "moon",
-      "pbrMetallicRoughness": {
-        "baseColorFactor": [
-          1,
-          1,
-          1,
-          1
-        ],
-        "baseColorTexture": {
-          "index": 0,
-          "texCoord": 0
-        },
-        "metallicFactor": 0,
-        "roughnessFactor": 0.59999999999999998
-      }
+      "extensions": {
+        "KHR_materials_pbrSpecularGlossiness": {
+          "diffuseFactor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "diffuseTexture": {
+            "index": 0,
+            "texCoord": 0
+          },
+          "glossinessFactor": 0.19595917942265426,
+          "specularFactor": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "name": "Material.002"
     }
   ],
   "meshes": [
     {
+      "name": "Sphere_Material.002_0",
       "primitives": [
         {
           "attributes": {
             "NORMAL": 1,
             "POSITION": 0,
-            "TANGENT": 2,
-            "TEXCOORD_0": 3
+            "TEXCOORD_0": 2
           },
-          "indices": 4,
+          "indices": 3,
           "material": 0,
           "mode": 4
         }
@@ -197,11 +183,59 @@
       "children": [
         3
       ],
-      "name": "mars.obj.cleaner"
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "name": "9200ff58b32943abb71f9b9bf8373a3b.fbx"
+    },
+    {
+      "children": [
+        4
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        5
+      ],
+      "matrix": [
+        100,
+        0,
+        0,
+        0,
+        0,
+        -1.6292067939183141e-05,
+        -99.999999999998678,
+        0,
+        0,
+        99.999999999998678,
+        -1.6292067939183141e-05,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "name": "Sphere"
     },
     {
       "mesh": 0,
-      "name": ""
+      "name": "Sphere_Material.002_0"
     }
   ],
   "samplers": [

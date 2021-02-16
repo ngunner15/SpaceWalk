@@ -8,7 +8,7 @@ export default function Mercury(props) {
 
   return (
     <Canvas>
-      <CameraControls />
+      <CameraControls zoomedInDistance={165} zoomedOutDistance={275} />
       {/* <directionalLight intensity={0.5} /> */}
       <ambientLight intensity={0.6} />
       <Suspense>

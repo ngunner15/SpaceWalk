@@ -1,5 +1,5 @@
-INSERT INTO admins (username, password) VALUES
-('Admin', 'admin123');
+INSERT INTO users (username, password, is_admin) VALUES
+('Admin', 'admin123', true);
 
 INSERT INTO planets (name, description) VALUES
 ('Mercury', 'A description or fun fact.'),

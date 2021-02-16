@@ -1,4 +1,4 @@
-INSERT INTO admins (name, password) VALUES
+INSERT INTO admins (username, password) VALUES
 ('Admin', 'admin123');
 
 INSERT INTO planets (name, description) VALUES

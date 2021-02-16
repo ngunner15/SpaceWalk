@@ -7,7 +7,11 @@ import RenderPlanet from './RenderPlanet'
 export default function Uranus(props) {
 
   return (
-    <Canvas>
+    <main>
+      <div className="planet-details">
+
+      </div>
+    <Canvas className="planet-model">
       <CameraControls zoomedInDistance={205} zoomedOutDistance={305} />
       {/* <directionalLight intensity={0.5} /> */}
       <ambientLight intensity={0.6} />
@@ -21,5 +25,6 @@ export default function Uranus(props) {
         factor={5} // Size factor (default=4)
       />
     </Canvas>
+    </main>
   )
 }

@@ -1,13 +1,12 @@
 .App {
-  text-align: center;
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-  /* background: #13131b; */
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
-main{
+main {
   width: 100%;
   height: 100%;
   display: flex;
@@ -15,10 +14,10 @@ main{
   background: #13131b;
 }
 
-main .planet-model{
+main .planet-model {
   flex-basis: 60%;
 }
-main .planet-details{
+main .planet-details {
   order: 1;
   flex-basis: 40%;
 }

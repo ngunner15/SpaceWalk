@@ -4,7 +4,6 @@
   height: 100%;
   margin: 0;
   padding: 0;
-  background: #13131b;
 }
 
 main{
@@ -12,6 +11,7 @@ main{
   height: 100%;
   display: flex;
   flex-direction: row;
+  background: #13131b;
 }
 
 main .planet-model{

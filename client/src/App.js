@@ -38,6 +38,7 @@ function App() {
           <Link to="/uranus">Uranus</Link>
           <Link to="/neptune">Neptune</Link>
           <Link to="/pluto">Pluto</Link>
+          <Link to="/apod">APOD</Link>
         </nav>
         <Switch>
           <Route path="/" exact>
@@ -69,6 +70,9 @@ function App() {
           </Route>
           <Route path="/pluto">
             <Pluto />
+          </Route>
+          <Route path="/apod">
+            <Apod />
           </Route>
           <Route path="/login"><Login /></Route>
           <Route path="/admin"> <Admin /></Route>

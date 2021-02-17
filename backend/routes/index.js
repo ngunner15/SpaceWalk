@@ -4,6 +4,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const router = express.Router();
 const cors = require("cors");
+const jwt = require('jsonwebtoken');
 
 app.use(express.json());
 app.use(cors());
@@ -24,19 +25,33 @@ module.exports = (db) => {
       queryString, [username, password])
       .then(data => {
         if (data.rows.length > 0) {
+          // if user is admin
           if (data.rows[0].is_admin) {
             console.log("INSIDE DATA.rows")
-            res.redirect(200, '/admin')
+            const token = jwt.sign({userID: data.rows[0].id}, process.env.TOKEN_SECRET);
+            // res.json({ data.rows[0], token })
+            // res.end()
+            return res.status(200).json({token});
+            // res.render("admin")
           }
+        // found nothing in database
         } else {
-          console.log("wrong username or password")
-          res.send("wrong username or password")
+          // res.send("wrong username or password")
+          // res.json({ msg: 'wrong username or password'});
+          console.log("Inside terminal: wrong username or password")
+          return res.status(401).json("Inside network: wrong username or password");
         }
       })
       .catch(err => {
+        // res.json({error: err.message });
         res.redirect(500, "index");
       });
   })
+
+  router.post('/logout', (req, res) => {
+    req.session.user_id = null;
+    return res.json(req.session.user_id);
+  });
 
   /* GET home page. */
   router.get('/', function(req, res, next) {

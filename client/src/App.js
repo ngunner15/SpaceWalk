@@ -13,6 +13,7 @@ import Venus from './components/Venus';
 import Mercury from "./components/Mercury";
 import Login from "./components/Login";
 import Admin from "./components/Admin";
+import Logout from "./components/Logout";
 
 import './App.css';
 
@@ -47,6 +48,9 @@ function App() {
           </Route>
           <Route path="/login"><Login /></Route>
           <Route path="/admin"> <Admin /></Route>
+          <Route path = "/logout">
+            <Logout />
+          </Route>
         </Switch>
       </div>
     </Router>

@@ -20,7 +20,7 @@ export default function Apod(props) {
   return (
     <div>
       <h1>I am APOD</h1>
-      <label for="date">Select date:</label>
+      <label htmlFor="date">Select date:</label>
       <input
         type="date"
         id="date"
@@ -34,9 +34,8 @@ export default function Apod(props) {
       {(data.media_type === "video") ? (
         <div>
           {/* URL link: {data.url} */}
-          <video width="750" height="500" controls >
-          <source src={data.url} type="video/mp4"/>
-          </video>
+          <p>Today you get to see a video!!!</p>
+          <a href={data.url}>Click here</a>
         </div>
       ) : (
         <div>

@@ -10,7 +10,7 @@ export default function Apod(props) {
     if (date === "") {
       let res = await axios.get(`https://api.nasa.gov/planetary/apod?api_key=${api}`);
       setData(res.data);
-    } else if (evt.key === "Enter") {
+    } else {
       let res = await axios.get(`https://api.nasa.gov/planetary/apod?api_key=${api}&date=${date}`)
       .then(setDate(""));
       setData(res.data);
@@ -28,7 +28,7 @@ export default function Apod(props) {
         max="2021-02-17"
         value={date}
         onChange={e => setDate(e.target.value)}
-        onKeyPress={search}
+        onSelect={search}
       />
       <button onClick={search}>Show Today's Picture</button>
       {(data.media_type === "video") ? (

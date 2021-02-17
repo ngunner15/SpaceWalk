@@ -4,16 +4,21 @@ import axios from 'axios';
 export default function Apod(props) {
   const [data, setData] = useState({});
   const [date, setDate] = useState("");
-  const api = 'IkM9PBhHgGHbzBvRtKGk8gOaPaLGZZ0qVSeZH0eJ';
 
-  const search = async (evt) => {
+  const search = async () => {
     if (date === "") {
-      let res = await axios.get(`https://api.nasa.gov/planetary/apod?api_key=${api}`);
-      setData(res.data);
+      axios.get(`/getPictureOfDay`)
+      .then(result => {
+        // console.log(result);
+        setData(result.data);
+      });
     } else {
-      let res = await axios.get(`https://api.nasa.gov/planetary/apod?api_key=${api}&date=${date}`)
-      .then(setDate(""));
-      setData(res.data);
+      axios.get(`/getPictureOfDate/${date}`)
+      .then(result => {
+        // console.log(result);
+        setData(result.data);
+        setDate("");
+      });
     }
   }
 
@@ -33,7 +38,6 @@ export default function Apod(props) {
       <button onClick={search}>Show Today's Picture</button>
       {(data.media_type === "video") ? (
         <div>
-          {/* URL link: {data.url} */}
           <p>Today you get to see a video!!!</p>
           <a href={data.url}>Click here</a>
         </div>

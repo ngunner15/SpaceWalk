@@ -63,5 +63,24 @@ module.exports = (db) => {
     res.render('admin', { title: 'Express' });
   });
 
+  router.get("/planets", (req, res) => {
+
+    let queryString = `
+    SELECT * FROM planets;
+    `;
+    db.query(queryString)
+
+      .then(data => {
+        const allPlanets = data.rows
+        
+        console.log('DATA ROWS' + JSON.stringify(allPlanets))
+        console.log('ALL PLANETS' + allPlanets)
+        return res.json(allPlanets);
+      })
+      .catch(err => {
+        res.status(500).send({ error: err.message });
+      });
+  });
+
   return router;
 }

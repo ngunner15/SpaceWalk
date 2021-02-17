@@ -2,11 +2,31 @@ import React, {Fragment, useEffect, useState} from "react";
 
 export default function Admin(props) {
 
+  const [planets, setPlanets] = useState([]);
+
+  const getPlanets = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/planets");
+      const jsonData = await response.json();
+
+      setPlanets(jsonData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  useEffect(() => {
+    getPlanets();
+  }, []);
+
+  // showing in chrome console
+  // console.log(JSON.stringify(planets));
+
   return (
     <Fragment>
       <h1>Welcome Admin, to the dashboard!</h1>
       {" "}
-      <table class="table mt-5 text-center">
+      <table className="table mt-5 text-center">
         <thead>
           <tr>
             <th>Planet</th>
@@ -15,7 +35,7 @@ export default function Admin(props) {
           </tr>
         </thead>
         <tbody>
-          {props.planetItems.map(planet => (
+          {planets.map(planet => (
             <tr key={planet.id}>
               <td>{planet.name}</td>
               <td>{planet.description}</td>

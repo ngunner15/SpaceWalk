@@ -58,3 +58,10 @@ app.get('/getPictureOfDate/:date', async (req, res) => {
     res.json(result.data);
   });
 })
+
+app.get('/getPlanetDetails/:planet', (req, res) => {
+  axios.get(`https://api.le-systeme-solaire.net/rest/bodies/${req.params.planet}`)
+        .then(result => {
+          res.json(result.data);
+        });
+})

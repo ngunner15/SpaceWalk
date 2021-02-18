@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import axios from 'axios';
 import { Canvas } from "react-three-fiber";
 import {  Stars } from "@react-three/drei";
@@ -9,14 +9,13 @@ export default function Mercury(props) {
 
   const [data, setData] = useState({});
 
-  function getDetails() {
-    axios.get(`https://api.le-systeme-solaire.net/rest/bodies/mercury`)
+  useEffect(() => {
+    const planet = "mercury"
+    axios.get(`/getPlanetDetails/${planet}`)
     .then(result => {
       setData(result.data);
     });
-  }
-
-  getDetails();
+  }, [])
 
   return (
     <main>

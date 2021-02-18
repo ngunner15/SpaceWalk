@@ -1,4 +1,5 @@
 import React, {Fragment, useEffect, useState} from "react";
+import EditPlanet from "./EditPlanet"
 
 export default function Admin(props) {
 
@@ -40,13 +41,7 @@ export default function Admin(props) {
               <td>{planet.name}</td>
               <td>{planet.description}</td>
               <td>
-                {/* <EditPlanet planet={planet} /> */}
-                <button
-                  className="btn btn-danger"
-                  // onClick={() => deletePlanet(planet.planet_id)}
-                >
-                  Edit
-                </button>
+                <EditPlanet setPlanets={setPlanets} planet={planet} />
               </td>
             </tr>
           ))}

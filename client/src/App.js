@@ -20,19 +20,6 @@ import './App.css';
 
 function App() {
 
-  const items = [{name: 'Mercury', description: 'A description or fun fact'},
-    {name: 'Venus', description: 'A description or fun fact'},
-    {name: 'Earth', description: 'A description or fun fact'},
-    {name: 'Mars', description: 'A description or fun fact'},
-    {name: 'Jupiter', description: 'A description or fun fact'},
-    {name: 'Saturn', description: 'A description or fun fact'},
-    {name: 'Uranus', description: 'A description or fun fact'},
-    {name: 'Neptune', description: 'A description or fun fact'},
-    {name: 'Pluto', description: 'A description or fun fact'}
-  ]
-
-  const [planetItems, setPlanetItems] = useState(items);
-
   return (
     <Router>
       <div className='App'>
@@ -89,7 +76,7 @@ function App() {
           </Route>
           <Route path='/admin'>
             {' '}
-            <Admin planetItems={items} />
+            <Admin />
           </Route>
           <Route path='/logout'>
             <Logout />

@@ -66,7 +66,8 @@ module.exports = (db) => {
   router.get("/planets", (req, res) => {
 
     let queryString = `
-    SELECT * FROM planets;
+    SELECT * FROM planets
+    ORDER BY id;
     `;
     db.query(queryString)
 
@@ -74,12 +75,26 @@ module.exports = (db) => {
         const allPlanets = data.rows
         
         console.log('DATA ROWS' + JSON.stringify(allPlanets))
-        console.log('ALL PLANETS' + allPlanets)
         return res.json(allPlanets);
       })
       .catch(err => {
         res.status(500).send({ error: err.message });
       });
+  });
+
+  router.put("/planets/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { description } = req.body;
+      const updatePlanet = await db.query(
+        "UPDATE planets SET description = $1 WHERE id = $2",
+        [description, id]
+      );
+      res.json("Planet was updated!");
+    }
+    catch (err) {
+      console.error(err.message);
+    }
   });
 
   return router;

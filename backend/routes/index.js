@@ -97,5 +97,22 @@ module.exports = (db) => {
     }
   });
 
+  router.get("/photos", (req, res) => {
+
+    let queryString = `
+    SELECT * FROM photos;
+    `;
+    db.query(queryString)
+
+      .then(data => {
+        const allPhotos = data.rows
+  
+        return res.json(allPhotos);
+      })
+      .catch(err => {
+        res.status(500).send({ error: err.message });
+      });
+  });
+
   return router;
 }

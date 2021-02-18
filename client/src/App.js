@@ -15,6 +15,7 @@ import Uranus from "./components/Uranus";
 import Neptune from "./components/Neptune";
 import Pluto from "./components/Pluto";
 import Apod from './components/Apod';
+import PhotoGallery from './components/PhotoGallery';
 
 import './App.css';
 
@@ -36,6 +37,7 @@ function App() {
           <Link to="/neptune">Neptune</Link>
           <Link to="/pluto">Pluto</Link>
           <Link to="/apod">APOD</Link>
+          <Link to="/photos">Photos</Link>
         </nav>
         <Switch>
           <Route path='/' exact component={Home}>
@@ -70,6 +72,9 @@ function App() {
           </Route>
           <Route path="/apod">
             <Apod />
+          </Route>
+          <Route path="/photos">
+            <PhotoGallery />
           </Route>
           <Route path='/login'>
             <Login />

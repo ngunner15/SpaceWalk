@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS photos CASCADE;
+
+CREATE TABLE photos (
+  id SERIAL PRIMARY KEY NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  url VARCHAR(255) NOT NULL,
+  posted_date date NOT NULL
+);

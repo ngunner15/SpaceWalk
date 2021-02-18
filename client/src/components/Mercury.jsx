@@ -1,4 +1,5 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
+import axios from 'axios';
 import { Canvas } from "react-three-fiber";
 import {  Stars } from "@react-three/drei";
 import CameraControls from './CameraControls';
@@ -6,10 +7,24 @@ import RenderPlanet from './RenderPlanet';
 
 export default function Mercury(props) {
 
+  const [data, setData] = useState({});
+
+  function getDetails() {
+    axios.get(`https://api.le-systeme-solaire.net/rest/bodies/mercury`)
+    .then(result => {
+      setData(result.data);
+    });
+  }
+
+  getDetails();
+
   return (
     <main>
       <div className="planet-details">
-
+        <div>Moons:{data.moons}</div>
+        <div>Gravity:{data.gravity}m/s<sup>2</sup></div>
+        <div>Density:{data.density}g/cm<sup>3</sup></div>
+        <div>Axial Tilt:{data.axialTilt}°</div>
       </div>
       <Canvas className="planet-model">
         <CameraControls zoomedInDistance={165} zoomedOutDistance={275} />

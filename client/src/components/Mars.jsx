@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import { Canvas } from "react-three-fiber";
 import {  Stars } from "@react-three/drei";
 import CameraControls from './CameraControls';
@@ -6,6 +6,16 @@ import RenderPlanet from './RenderPlanet'
 import axios from 'axios';
 
 export default function Mars(props) {
+
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    const planet = "mars"
+    axios.get(`/getPlanetDetails/${planet}`)
+    .then(result => {
+      setData(result.data);
+    });
+  }, [])
 
   function getWeather() {
     axios.get(`/getMarsWeather`)
@@ -34,7 +44,11 @@ export default function Mars(props) {
   return (
     <main>
       <div className="planet-details">
-      <h1>I am Mars</h1>
+        <h1>I am Mars</h1>
+        {/* <div>Moons:{data.moons.length}</div> */}
+        <div>Gravity:{data.gravity}m/s<sup>2</sup></div>
+        <div>Density:{data.density}g/cm<sup>3</sup></div>
+        <div>Axial Tilt:{data.axialTilt}°</div>
       {/* <div>
         <div className="location-data">
           <div className="location">{weather.name}, {weather.sys.country}</div>

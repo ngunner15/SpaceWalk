@@ -23,11 +23,11 @@ export default function Login(props) {
   return (
     <div className="login">
       {token && <Redirect to= "/admin" />}
-      <form className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center" name='name'>
+      <form name='name'>
         <h1>Login</h1>
-        <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" name="username" type="text" placeholder="Username..." onChange={(e) => setUsername(e.target.value) }/>
-        <input className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" name="password" type="password" placeholder="Password..." onChange={(e) => setPassword(e.target.value) }/>
-        <button className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="button" onClick={login}> Login </button>
+        <input name="username" type="text" placeholder="Username..." onChange={(e) => setUsername(e.target.value) }/>
+        <input name="password" type="password" placeholder="Password..." onChange={(e) => setPassword(e.target.value) }/>
+        <button type="button" onClick={login}> Login </button>
       </form>
     </div>
   );

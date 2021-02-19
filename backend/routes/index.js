@@ -63,5 +63,110 @@ module.exports = (db) => {
     res.render('admin', { title: 'Express' });
   });
 
+  router.get("/planets", (req, res) => {
+
+    let queryString = `
+    SELECT * FROM planets
+    ORDER BY id;
+    `;
+    db.query(queryString)
+
+      .then(data => {
+        const allPlanets = data.rows
+        
+        // console.log('DATA ROWS' + JSON.stringify(allPlanets))
+        return res.json(allPlanets);
+      })
+      .catch(err => {
+        res.status(500).send({ error: err.message });
+      });
+  });
+
+  router.put("/planets/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { description } = req.body;
+      const updatePlanet = await db.query(
+        "UPDATE planets SET description = $1 WHERE id = $2",
+        [description, id]
+      );
+      res.json("Planet was updated!");
+    }
+    catch (err) {
+      console.error(err.message);
+    }
+  });
+
+  router.get("/photos", (req, res) => {
+    let queryString = `
+    SELECT * FROM photos;
+    `;
+    db.query(queryString)
+
+      .then(data => {
+        const allPhotos = data.rows
+  
+        return res.json(allPhotos);
+      })
+      .catch(err => {
+        res.status(500).send({ error: err.message });
+      });
+  });
+
+  router.get("/favourites/:id", (req, res) => {
+    let userId = req.params.id;
+
+    let queryString = `
+    SELECT * FROM favourites
+    JOIN users ON favourites.user_id = users.id
+    JOIN photos ON favourites.photo_id = photos.id
+    WHERE users.id = $1;
+    `
+    db.query(queryString, [req.params.id])
+
+      .then(data => {
+        const allFavs = data.rows
+        // console.log('DATA ROWS' + JSON.stringify(allFavs))
+        return res.json(allFavs);
+      })
+      // .catch(err => {
+      //   res.status(500).send({ error: err.message });
+      // });
+  });
+
+  router.post("/favourites", (req, res) => {
+    const userId = req.session.user_id;
+    const photo_id = req.body.photo_id;
+    const queryString =`
+    INSERT INTO favourite_listings (user_id, photo_id)
+    VALUES ($1, $2);
+    `;
+    db.query(queryString, [userId, photo_id])
+      .then(data => {
+        res.status(200).send(200);
+      })
+      .catch(err => {
+        res.status(500).send({ error: err.message });
+      });
+  });
+
+  router.delete("/favourites/:id", (req, res) => {
+    const userId = req.params.id;
+    const photo_id = req.body.photo_id;
+
+    let queryString = `
+    DELETE FROM favourites
+    WHERE user_id = $1 AND photo_id = $2;
+    `;
+    db.query(queryString, [userId, photo_id])
+
+      .then(() => {
+        return res.status(200).send(200);
+      })
+      .catch(err => {
+        res.status(500).send({ error: err.message });
+      });
+  });
+
   return router;
 }

@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import axios from 'axios';
 import dateBuilder from '../helpers/DateHelper';
 import { Canvas } from "react-three-fiber";
@@ -9,6 +9,15 @@ import RenderPlanet from './RenderPlanet';
 export default function Earth(props) {
   const [city, setCity] = useState('');
   const [weather, setWeather] = useState({});
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    const planet = "earth"
+    axios.get(`/getPlanetDetails/${planet}`)
+    .then(result => {
+      setData(result.data);
+    });
+  }, [])
 
   const search = evt => {
     if (evt.key === "Enter") {
@@ -26,6 +35,10 @@ export default function Earth(props) {
     <main>
       <div className="planet-details">
         <h2>I am Earth</h2>
+        {/* <div>Moons:{data.moons.length}</div> */}
+        <div>Gravity:{data.gravity}m/s<sup>2</sup></div>
+        <div>Density:{data.density}g/cm<sup>3</sup></div>
+        <div>Axial Tilt:{data.axialTilt}°</div>
         <div className="search">
           <input
             type="text"

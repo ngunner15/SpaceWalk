@@ -1,4 +1,5 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState, useEffect } from "react";
+import axios from 'axios';
 import { Canvas } from "react-three-fiber";
 import {  Stars } from "@react-three/drei";
 import CameraControls from './CameraControls';
@@ -6,10 +7,23 @@ import RenderPlanet from './RenderPlanet'
 
 export default function Jupiter(props) {
 
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    const planet = "jupiter"
+    axios.get(`/getPlanetDetails/${planet}`)
+    .then(result => {
+      setData(result.data);
+    });
+  }, [])
+
   return (
     <main>
       <div className="planet-details">
-
+        {/* <div>Moons:{data.moons.length}</div> */}
+        <div>Gravity:{data.gravity}m/s<sup>2</sup></div>
+        <div>Density:{data.density}g/cm<sup>3</sup></div>
+        <div>Axial Tilt:{data.axialTilt}°</div>
       </div>
       <Canvas className="planet-model">
         <CameraControls zoomedInDistance={170} zoomedOutDistance={280} />

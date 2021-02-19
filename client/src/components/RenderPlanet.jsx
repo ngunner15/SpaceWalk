@@ -8,6 +8,5 @@ export default function RenderPlanet(props) {
   useEffect(() => {
     new GLTFLoader().load(`models/${planet}/scene.gltf`, setModel);
   }, [])
-  console.log(model);
   return model ? <primitive object={model.scene} /> : null;
 }

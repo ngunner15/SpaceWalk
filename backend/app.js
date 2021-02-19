@@ -31,22 +31,36 @@ app.use('/users', usersRouter);
 
 module.exports = app;
 
-const apiEarth = {
-  base: "https://api.openweathermap.org/data/2.5/"
-}
-
 app.get('/getEarthWeather/:city', (req, res) => {
-  // console.log(req.params);
-  
-  axios.get(`${apiEarth.base}weather?q=${req.params.city}&units=metric&APPID=${process.env.EARTH_KEY}`)
+  axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${req.params.city}&units=metric&APPID=${process.env.EARTH_KEY}`)
         .then(result => {
           res.json(result.data);
         });
 })
 
 app.get('/getMarsWeather', (req, res) => {
-  
-  axios.get(`https://api.nasa.gov/insight_weather/?api_key=${process.env.MARS_KEY}&feedtype=json&ver=1.0`)
+  axios.get(`https://api.nasa.gov/insight_weather/?api_key=${process.env.NASA_KEY}&feedtype=json&ver=1.0`)
+        .then(result => {
+          res.json(result.data);
+        });
+})
+
+app.get('/getPictureOfDay', async (req, res) => {
+  await axios.get(`https://api.nasa.gov/planetary/apod?api_key=${process.env.NASA_KEY}`)
+  .then(result => {
+    res.json(result.data);
+  });
+})
+
+app.get('/getPictureOfDate/:date', async (req, res) => {
+  await axios.get(`https://api.nasa.gov/planetary/apod?api_key=${process.env.NASA_KEY}&date=${req.params.date}`)
+  .then(result => {
+    res.json(result.data);
+  });
+})
+
+app.get('/getPlanetDetails/:planet', (req, res) => {
+  axios.get(`https://api.le-systeme-solaire.net/rest/bodies/${req.params.planet}`)
         .then(result => {
           res.json(result.data);
         });

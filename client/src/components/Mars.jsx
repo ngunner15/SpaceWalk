@@ -45,9 +45,18 @@ export default function Mars(props) {
     <main>
       <div className="planet-details">
         <h1>I am Mars</h1>
-        {/* <div>Moons:{data.moons.length}</div> */}
+        <div>Moons:</div>
+        <div>Min Temp: -129°C</div>
+        <div>Max Temp: 20°C</div>
+        <div>Perihelion:{data.perihelion}km</div>
+        <div>Aphelion:{data.aphelion}km</div>
+        <div>Eccentricity:{data.eccentricity}</div>
         <div>Gravity:{data.gravity}m/s<sup>2</sup></div>
         <div>Density:{data.density}g/cm<sup>3</sup></div>
+        <div>Equatorial Radius:{data.equaRadius}km</div>
+        <div>Polar Radius:{data.polarRadius}km</div>
+        <div>Sideral Orbit:{data.sideralOrbit}days</div>
+        <div>Sideral Rotation:{data.sideralRotation}hours</div>
         <div>Axial Tilt:{data.axialTilt}°</div>
       {/* <div>
         <div className="location-data">

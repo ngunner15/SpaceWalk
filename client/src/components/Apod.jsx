@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Navbar from './Navbar';
 
 export default function Apod(props) {
   const [data, setData] = useState({});
   const [date, setDate] = useState("");
 
-  const search = async () => {
+  const search = () => {
     if (date === "") {
       axios.get(`/getPictureOfDay`)
       .then(result => {
@@ -23,7 +24,8 @@ export default function Apod(props) {
   }
 
   return (
-    <div>
+    <div className="App">
+      <Navbar />
       <h1>I am APOD</h1>
       <label htmlFor="date">Select date:</label>
       <input
@@ -42,12 +44,12 @@ export default function Apod(props) {
           <a href={data.url}>Click here</a>
         </div>
       ) : (
-        <div>
-          <p>{data.explanation}</p>
-          <img src={data.hdurl}></img>
-        </div>
-      )}
-      
+          <div>
+            <p>{data.explanation}</p>
+            <img src={data.hdurl}></img>
+          </div>
+        )}
+
     </div>
   );
 }

@@ -1,15 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Mercury from "./Mercury";
-import Venus from './Venus';
-import Earth from './Earth';
-import Mars from './Mars';
-import Jupiter from "./Jupiter";
-import Saturn from "./Saturn";
-import Uranus from "./Uranus";
-import Neptune from "./Neptune";
-import Pluto from "./Pluto";
-import Apod from './Apod';
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import MarsImage from '../images/mars.svg';
@@ -139,58 +129,10 @@ export default function Home() {
     visible: { opacity: 1, x: 0 },
   };
 
-  const AuthenticatedRoutes = () => {
-    return (
-      <Router>
-       <div className='App'>
-         <nav>
-          <Link to="/mercury">Mercury</Link>
-          <Link to="/venus">Venus</Link>
-          <Link to="/earth">Earth</Link>
-          <Link to="/mars">Mars</Link>
-          <Link to="/jupiter">Jupiter</Link>
-          <Link to="/saturn">Saturn</Link>
-          <Link to="/uranus">Uranus</Link>
-          <Link to="/neptune">Neptune</Link>
-          <Link to="/pluto">Pluto</Link>
-          <Link to="/apod">APOD</Link>
-        </nav>
-        <Switch>
-          <Route path='/mercury' exact component={Mercury}>
-            <Mercury />
-          </Route>
-          <Route path='/venus'>
-            <Venus />
-          </Route>
-          <Route path='/earth'>
-            <Earth />
-          </Route>
-          <Route path='/mars'>
-            <Mars />
-          </Route>
-          <Route path='/jupiter'>
-            <Jupiter />
-          </Route>
-          <Route path='/saturn'>
-            <Saturn />
-          </Route>
-          <Route path='/uranus'>
-            <Uranus />
-          </Route>
-          <Route path='/neptune'>
-            <Neptune />
-          </Route>
-          <Route path='/pluto'>
-            <Pluto />
-          </Route>
-          <Route path="/apod">
-            <Apod />
-          </Route>
-        </Switch>
-       </div>
-       </Router>
-    )
-}
+  let history = useHistory();
+  const redirect = () => {
+    history.push('/Mercury')
+  }
 
   return (
     <Section>
@@ -216,7 +158,7 @@ export default function Home() {
             whileHover={{ scale: 1.3 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { duration: 1.5 } }}
-            onClick={AuthenticatedRoutes}
+            onClick={redirect}
           >
             Explore Here
           </Button>

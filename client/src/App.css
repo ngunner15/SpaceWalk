@@ -11,15 +11,39 @@ main {
   height: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
   background: #13131b;
 }
 
 .container-left {
   border-radius: 10px;
   border: 2px solid #86c232;
+  width: 60%;
+  height: 90%;
 }
 
 .container-right {
   border-radius: 10px;
   border: 2px solid #86c232;
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  height: 90%;
+}
+
+.planet-details {
+  color: white;
+  margin: 1rem;
+  border-radius: 10px;
+  border: 2px solid #86c232;
+  width: 80%;
+  height: 50%;
+}
+
+.planet-details:hover,
+.container-right:hover,
+.container-left:hover {
+  box-shadow: 5px 10px #61892f;
+  padding: 10px;
 }

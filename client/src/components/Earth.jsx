@@ -35,10 +35,18 @@ export default function Earth(props) {
     <main>
       <div className="planet-details">
         <h2>I am Earth</h2>
-        {/* <div>Moons:{data.moons.length}</div> */}
+        <div>Moons:</div>
+        <div>Perihelion:{data.perihelion}km</div>
+        <div>Aphelion:{data.aphelion}km</div>
+        <div>Eccentricity:{data.eccentricity}</div>
         <div>Gravity:{data.gravity}m/s<sup>2</sup></div>
         <div>Density:{data.density}g/cm<sup>3</sup></div>
+        <div>Equatorial Radius:{data.equaRadius}km</div>
+        <div>Polar Radius:{data.polarRadius}km</div>
+        <div>Sideral Orbit:{data.sideralOrbit}days</div>
+        <div>Sideral Rotation:{data.sideralRotation}hours</div>
         <div>Axial Tilt:{data.axialTilt}°</div>
+        <div>Enter a city's name:</div>
         <div className="search">
           <input
             type="text"

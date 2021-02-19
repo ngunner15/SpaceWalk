@@ -16,6 +16,7 @@ import Neptune from "./components/Neptune";
 import Pluto from "./components/Pluto";
 import Apod from './components/Apod';
 import PhotoGallery from './components/PhotoGallery';
+import Favourites from './components/Favourites';
 
 import './App.css';
 

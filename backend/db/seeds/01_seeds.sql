@@ -55,3 +55,16 @@ INSERT INTO photos (title, description, url, posted_date) VALUES
   '2020-01-28'),
 ('NGC 1275', 'It accretes matter as entire galaxies fall into it, ultimately feeding a supermassive black hole at the galaxy''s core', 'https://i.imgur.com/YTRlxhK.jpg',
   '2020-01-29');
+
+INSERT INTO favourites (user_id, photo_id) VALUES
+(1, 1),
+(1, 2),
+(1, 8),
+(1, 9),
+(1, 10),
+(1, 13),
+(2, 1),
+(2, 13),
+(2, 12),
+(2, 21),
+(2, 15);

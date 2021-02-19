@@ -20,9 +20,17 @@ export default function Uranus(props) {
   return (
     <main>
       <div className="planet-details">
-        {/* <div>Moons:{data.moons}</div> */}
+        <div>Moons:</div>
+        <div>Avg Temp: -195°C</div>
+        <div>Perihelion:{data.perihelion}km</div>
+        <div>Aphelion:{data.aphelion}km</div>
+        <div>Eccentricity:{data.eccentricity}</div>
         <div>Gravity:{data.gravity}m/s<sup>2</sup></div>
         <div>Density:{data.density}g/cm<sup>3</sup></div>
+        <div>Equatorial Radius:{data.equaRadius}km</div>
+        <div>Polar Radius:{data.polarRadius}km</div>
+        <div>Sideral Orbit:{data.sideralOrbit}days</div>
+        <div>Sideral Rotation:{data.sideralRotation}hours</div>
         <div>Axial Tilt:{data.axialTilt}°</div>
       </div>
     <Canvas className="planet-model">

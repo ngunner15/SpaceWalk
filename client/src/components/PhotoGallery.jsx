@@ -1,4 +1,5 @@
 import React, {Fragment, useEffect, useState} from "react";
+import axios from 'axios';
 
 export default function PhotoGallery(props) {
 
@@ -19,6 +20,10 @@ export default function PhotoGallery(props) {
     getPhotos();
   }, []);
 
+  const addFav = () => {
+
+  }
+
   // showing in chrome console
   // console.log(JSON.stringify(photos));
 
@@ -37,7 +42,7 @@ export default function PhotoGallery(props) {
               {photo.description}
             </p>
             <div className="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-              <button className="btn btn-primary" type="button">Favourite</button>
+              <button onClick={addFav} className="btn btn-primary" type="button">Favourite</button>
               <div className="badge badge-danger px-3 rounded-pill font-weight-normal">{photo.posted_date.split('T')[0]}
               </div>
             </div>
@@ -45,7 +50,7 @@ export default function PhotoGallery(props) {
         </div>
       </div>
       ))}
-       <div class="py-4 text-right"><a href="#" class="btn btn-light px-4 py-2">Go to top</a></div>
+       <div className="py-4 text-right"><a href="#" className="btn btn-light px-4 py-2">Go to top</a></div>
     </div>
   );
 }

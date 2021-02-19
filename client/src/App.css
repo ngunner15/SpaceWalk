@@ -1,8 +1,6 @@
 .App {
   width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 0;
   font-family: 'Open Sans Condensed', sans-serif;
 }
 
@@ -11,14 +9,39 @@ main {
   height: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
   background: #13131b;
 }
 
-main .planet-model {
-  flex-basis: 60%;
+.container-left {
+  border-radius: 10px;
+  border: 2px solid #86c232;
+  width: 60%;
+  height: 90%;
 }
-main .planet-details {
-  order: 1;
-  flex-basis: 40%;
-  color: floralwhite;
+
+.container-right {
+  border-radius: 10px;
+  border: 2px solid #86c232;
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  height: 90%;
+}
+
+.planet-details {
+  color: white;
+  margin: 1rem;
+  border-radius: 10px;
+  border: 2px solid #86c232;
+  width: 80%;
+  height: 50%;
+}
+
+.planet-details:hover,
+.container-right:hover,
+.container-left:hover {
+  box-shadow: 5px 10px #61892f;
+  padding: 10px;
 }

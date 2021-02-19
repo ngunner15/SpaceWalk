@@ -6,7 +6,7 @@ import Saturn from '../images/saturn.svg';
 import Uranus from '../images/uranus.svg';
 import Spaceshuttle from '../images/spaceshuttle.svg';
 
-const Section = styled.section`
+const StyledSection = styled.section`
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -129,7 +129,7 @@ export default function Home() {
   };
 
   return (
-    <Section>
+    <StyledSection>
       <Homepage>
         <Intro>
           <motion.h1
@@ -137,7 +137,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5 }}
           >
-            Weather App
+            SpaceWalk
           </motion.h1>
           <motion.p
             variants={fade}
@@ -163,6 +163,6 @@ export default function Home() {
           <ShuttleImage src={Spaceshuttle} alt='spaceship' />
         </Images>
       </Homepage>
-    </Section>
+    </StyledSection>
   );
 }

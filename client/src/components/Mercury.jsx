@@ -1,24 +1,21 @@
-import React, { Suspense } from "react";
-import { Canvas } from "react-three-fiber";
-import {  Stars } from "@react-three/drei";
+import React, { Suspense } from 'react';
+import { Canvas } from 'react-three-fiber';
+import { Stars } from '@react-three/drei';
 import CameraControls from './CameraControls';
 import RenderPlanet from './RenderPlanet';
 
 export default function Mercury(props) {
-
   return (
     <main>
-      <div className="planet-details">
-
-      </div>
-      <Canvas className="planet-model">
+      <div className='planet-details'></div>
+      <Canvas className='planet-model'>
         <CameraControls zoomedInDistance={165} zoomedOutDistance={275} />
         {/* <directionalLight intensity={0.5} /> */}
         <ambientLight intensity={0.6} />
         <Suspense>
-          <RenderPlanet planets="mercury"/>
+          <RenderPlanet planets='mercury' />
         </Suspense>
-        <Stars 
+        <Stars
           radius={150} // Radius of the inner sphere (default=100)
           depth={70} // Depth of area where stars should fit (default=50)
           count={4000} // Amount of stars (default=5000)
@@ -26,5 +23,5 @@ export default function Mercury(props) {
         />
       </Canvas>
     </main>
-  )
+  );
 }

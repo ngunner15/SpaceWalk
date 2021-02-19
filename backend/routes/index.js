@@ -129,39 +129,38 @@ module.exports = (db) => {
         // console.log('DATA ROWS' + JSON.stringify(allFavs))
         return res.json(allFavs);
       })
-      // .catch(err => {
-      //   res.status(500).send({ error: err.message });
-      // });
-  });
-
-  router.post("/favourites", (req, res) => {
-    const userId = req.session.user_id;
-    const photo_id = req.body.photo_id;
-    const queryString =`
-    INSERT INTO favourite_listings (user_id, photo_id)
-    VALUES ($1, $2);
-    `;
-    db.query(queryString, [userId, photo_id])
-      .then(data => {
-        res.status(200).send(200);
-      })
       .catch(err => {
         res.status(500).send({ error: err.message });
       });
   });
 
-  router.delete("/favourites/:id", (req, res) => {
-    const userId = req.params.id;
-    const photo_id = req.body.photo_id;
+  // add into favourites
+  // router.post("/favourites", (req, res) => {
+  //   const userId = req.session.user_id;
+  //   const photo_id = req.body.photo_id;
+  //   const queryString =`
+  //   INSERT INTO favourite_listings (user_id, photo_id)
+  //   VALUES ($1, $2);
+  //   `;
+  //   db.query(queryString, [userId, photo_id])
+  //     .then(data => {
+  //       res.status(200).send(200);
+  //     })
+  //     .catch(err => {
+  //       res.status(500).send({ error: err.message });
+  //     });
+  // });
 
-    let queryString = `
+  // delete the selected favourite photo
+  router.delete("/favourites/:id", (req, res) => {
+    const queryString = `
     DELETE FROM favourites
     WHERE user_id = $1 AND photo_id = $2;
     `;
-    db.query(queryString, [userId, photo_id])
-
+    db.query(queryString, [req.params.id, req.body.key])
       .then(() => {
-        return res.status(200).send(200);
+        console.log("DELETED")
+        return res.status(200).send("200");
       })
       .catch(err => {
         res.status(500).send({ error: err.message });

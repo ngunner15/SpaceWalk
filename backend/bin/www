@@ -93,5 +93,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
-  console.log("Welcome to Solar System Weather App");
+  console.log("Welcome to SpaceWalk App");
 }

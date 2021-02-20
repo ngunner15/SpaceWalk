@@ -12,7 +12,7 @@
 }
 
 .container {
-  margin-top: 2rem;
+  margin-top: 3rem;
   width: 50%;
   border: 2px solid #86c232;
   border-radius: 10px;
@@ -25,7 +25,7 @@
 }
 
 .apod-button {
-  margin-top: 2rem;
+  margin-top: 3rem;
   padding: 0.8rem 3rem;
   color: #fff;
   font-size: 1.5rem;
@@ -38,5 +38,6 @@
 
 .apod-button:hover {
   box-shadow: 5px 10px #61892f;
-  padding: 10px;
+  padding: 1rem 3.5rem;
+  font-size: 1.7rem;
 }

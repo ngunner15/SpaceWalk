@@ -37,8 +37,11 @@ export default function Apod(props) {
           onChange={(e) => setDate(e.target.value)}
           onSelect={search}
         />
-        <button onClick={search}>Show Today's Picture</button>
       </div>
+
+      <button className='apod-button' onClick={search}>
+        Show Today's Picture
+      </button>
       {data.media_type === 'video' ? (
         <div>
           <p>Today you get to see a video!!!</p>

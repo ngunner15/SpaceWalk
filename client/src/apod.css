@@ -23,3 +23,20 @@
   box-shadow: 5px 10px #61892f;
   padding: 30px;
 }
+
+.apod-button {
+  margin-top: 2rem;
+  padding: 0.8rem 3rem;
+  color: #fff;
+  font-size: 1.5rem;
+  border: 1.5px solid #86c232;
+  border-radius: 50px;
+  background-color: #86c232;
+  outline: none;
+  cursor: pointer;
+}
+
+.apod-button:hover {
+  box-shadow: 5px 10px #61892f;
+  padding: 10px;
+}

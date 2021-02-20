@@ -40,7 +40,7 @@ export default function Apod(props) {
       </div>
 
       <button className='apod-button' onClick={search}>
-        Press to Display Content
+        Press Button
       </button>
       {data.media_type === 'video' ? (
         <div>

@@ -137,7 +137,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5 }}
           >
-            Weather App
+            Space Walk App
           </motion.h1>
           <motion.p
             variants={fade}

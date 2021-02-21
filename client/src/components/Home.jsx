@@ -1,9 +1,10 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import Mars from '../images/mars.svg';
-import Saturn from '../images/saturn.svg';
-import Uranus from '../images/uranus.svg';
+import MarsImage from '../images/mars.svg';
+import SaturnImage from '../images/saturn.svg';
+import UranusImage from '../images/uranus.svg';
 import Spaceshuttle from '../images/spaceshuttle.svg';
 
 const Section = styled.section`
@@ -128,6 +129,11 @@ export default function Home() {
     visible: { opacity: 1, x: 0 },
   };
 
+  let history = useHistory();
+  const redirect = () => {
+    history.push('/Mercury')
+  }
+
   return (
     <Section>
       <Homepage>
@@ -152,14 +158,15 @@ export default function Home() {
             whileHover={{ scale: 1.3 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { duration: 1.5 } }}
+            onClick={redirect}
           >
             Explore Here
           </Button>
         </Intro>
         <Images>
-          <PlanetImage src={Mars} alt='Mars' />
-          <PlanetImage src={Saturn} alt='Saturn' />
-          <PlanetImage src={Uranus} alt='Uranus' />
+          <PlanetImage src={MarsImage} alt='MarsImage' />
+          <PlanetImage src={SaturnImage} alt='SaturnImage' />
+          <PlanetImage src={UranusImage} alt='UranusImage' />
           <ShuttleImage src={Spaceshuttle} alt='spaceship' />
         </Images>
       </Homepage>

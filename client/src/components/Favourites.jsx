@@ -1,6 +1,7 @@
 import React, {Fragment, useEffect, useState} from "react";
+import axios from 'axios';
 
-export default function PhotoGallery() {
+export default function Favourites() {
 
   const [favourites, setFavourites] = useState([]);
 
@@ -19,22 +20,16 @@ export default function PhotoGallery() {
     getFavourites();
   }, []);
 
-  // const deleteFav = () => {
-  //   $('.fav-remove-button').on('click', function(event) {
-  //     const favContainer = $(this).parent('.d-flex').parent('.p-4').parent('.bg-white').parent('#fav-container');
-  //     // delete a favourite
-  //     console.log("AFTER CLICK : " + event.target.value)
-  //     deleteFav(event.target.value);
-  //     // deletes html instantly
-  //     favContainer.remove();
-  //     loadFavourites();
-  //   });  
-  // }
-
-  const deleteFav = () => {
+  function removeFavourite(favid) {
+    axios
+      .delete(`http://localhost:3001/favourites/${window.location.pathname.split('/')[2]}`, { data: { key: favid }})
+      .then((result) => {
+        getFavourites();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
-
-  console.log(favourites)
 
   return (
     <div>
@@ -51,7 +46,7 @@ export default function PhotoGallery() {
               {favourite.description}
             </p>
             <div className="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-              <button className="fav-remove-button btn btn-danger" type="button" onClick={deleteFav}>Remove</button>
+              <button className="fav-remove-button btn btn-danger" type="button" onClick={() => removeFavourite(favourite.id)}>Remove</button>
               <div className="badge badge-info px-3 rounded-pill font-weight-normal">{favourite.posted_date.split('T')[0]}
               </div>
             </div>

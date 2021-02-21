@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import '../apod.css';
 import axios from 'axios';
+import Navbar from './Navbar';
 
 export default function Apod(props) {
   const [data, setData] = useState({});
   const [date, setDate] = useState('');
 
-  const search = async () => {
+  const search = () => {
     if (date === '') {
       axios.get(`/getPictureOfDay`).then((result) => {
         // console.log(result);

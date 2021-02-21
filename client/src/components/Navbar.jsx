@@ -16,6 +16,7 @@ export default function Navbar(props) {
       <Link to="/pluto">Pluto</Link>
       <Link to="/apod">APOD</Link>
       <Link to="/photos">Photos</Link>
+      <Link to="/news">News</Link>
     </nav>
   )
 }

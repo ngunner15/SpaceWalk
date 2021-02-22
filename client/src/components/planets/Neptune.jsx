@@ -21,6 +21,7 @@ export default function Neptune(props) {
       <Navbar />
       <main>
         <div className='container-right'>
+          <h2>Planet Information:</h2>
           <div className='planet-details'>
             <div>Moons:</div>
             <div>Avg Temp: -201°C</div>

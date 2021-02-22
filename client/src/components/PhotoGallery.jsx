@@ -1,5 +1,7 @@
 import React, {Fragment, useEffect, useState} from "react";
 import axios from 'axios';
+import '../PhotoGallery.css';
+import 'tachyons';
 
 export default function PhotoGallery(props) {
   const [name, setName] = useState("");
@@ -22,9 +24,9 @@ export default function PhotoGallery(props) {
 
   function addFav(favid) {
     axios
-      .post("http://localhost:3001/favourites", { data: { key: favid }})
-      .then((result) => {
-        // do nothing
+      .post("http://localhost:3001/favourites",  {params : favid })
+      .then(() => {
+        // do nothing in browser console
       })
       .catch((err) => {
         console.log(err);
@@ -49,8 +51,8 @@ export default function PhotoGallery(props) {
   // console.log(JSON.stringify(photos));
 
   return (
-    <div>
-      <h1>Welcome to the photo gallery</h1>
+    <div className="page-back">
+      <h1 className="title">Welcome to the photo gallery</h1>
 
       <form className="d-flex" onSubmit={onSubmitForm}>
         <input
@@ -65,7 +67,7 @@ export default function PhotoGallery(props) {
       </form>
 
       {photos.map(photo => (
-      <div className="col-xl-3 col-lg-4 col-md-6 mb-4" id="fav-container">
+      <div className="tc bg-lightest-blue dib br3 pa3 ma2 grow bw2 shadow-4 col-xl-3 col-lg-4 col-md-6 mb-4" id="fav-container">
         <div className="bg-white rounded shadow-sm">
           <img key={photo.id} src={photo.url} alt="main-photo" className="img-fluid card-img-top" />
           <div className="p-4">
@@ -76,7 +78,7 @@ export default function PhotoGallery(props) {
               {photo.description}
             </p>
             <div className="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-              <button onClick={() => addFav(photo.id)} className="btn btn-primary" type="button">Favourite</button>
+              <button className="btn btn-primary" type="button" onClick={() => addFav(photo.id)}>Favourite</button>
               <div className="badge badge-danger px-3 rounded-pill font-weight-normal">{photo.posted_date.split('T')[0]}
               </div>
             </div>
@@ -84,7 +86,7 @@ export default function PhotoGallery(props) {
         </div>
       </div>
       ))}
-       <div className="py-4 text-right"><a href="#" className="btn btn-light px-4 py-2">Go to top</a></div>
+       <div className="py-4 text-right"><a href="#" className="btn bg-washed-yellow px-4 py-2">Go to top</a></div>
     </div>
   );
 }

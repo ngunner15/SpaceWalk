@@ -5,9 +5,12 @@ import { Stars } from '@react-three/drei';
 import CameraControls from './CameraControls';
 import RenderPlanet from './RenderPlanet';
 import Navbar from '../Navbar';
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 export default function Venus(props) {
   const [data, setData] = useState({});
+
+  const handle = useFullScreenHandle();
 
   useEffect(() => {
     const planet = 'venus';
@@ -19,52 +22,57 @@ export default function Venus(props) {
   return (
     <div className='App'>
       <Navbar />
-      <main>
-        <div className='container-right'>
-          <h2>Planet Information:</h2>
-          <div className='planet-details'>
-            <div>Moons:</div>
-            <div>Avg Temp: 460°C</div>
-            <div>Perihelion:{data.perihelion}km</div>
-            <div>Aphelion:{data.aphelion}km</div>
-            <div>Eccentricity:{data.eccentricity}</div>
-            <div>
-              Gravity:{data.gravity}m/s<sup>2</sup>
+      <FullScreen handle={handle}>
+        <main>
+          <div className='container-right'>
+            <h2>Planet Information:</h2>
+            <div className='planet-details'>
+              <div>Moons:</div>
+              <div>Avg Temp: 460°C</div>
+              <div>Perihelion:{data.perihelion}km</div>
+              <div>Aphelion:{data.aphelion}km</div>
+              <div>Eccentricity:{data.eccentricity}</div>
+              <div>
+                Gravity:{data.gravity}m/s<sup>2</sup>
+              </div>
+              <div>
+                Density:{data.density}g/cm<sup>3</sup>
+              </div>
+              <div>Equatorial Radius:{data.equaRadius}km</div>
+              <div>Polar Radius:{data.polarRadius}km</div>
+              <div>Sideral Orbit:{data.sideralOrbit}days</div>
+              <div>Sideral Rotation:{data.sideralRotation}hours</div>
+              <div>Axial Tilt:{data.axialTilt}°</div>
             </div>
-            <div>
-              Density:{data.density}g/cm<sup>3</sup>
-            </div>
-            <div>Equatorial Radius:{data.equaRadius}km</div>
-            <div>Polar Radius:{data.polarRadius}km</div>
-            <div>Sideral Orbit:{data.sideralOrbit}days</div>
-            <div>Sideral Rotation:{data.sideralRotation}hours</div>
-            <div>Axial Tilt:{data.axialTilt}°</div>
+            <button className="fullscreen-button" onClick={handle.enter}>
+              FullScreen Mode
+            </button>
           </div>
-        </div>
-        <div className='container-left'>
-          <Canvas className='planet-model'>
-            <CameraControls zoomedInDistance={165} zoomedOutDistance={275} />
-            {/* <directionalLight intensity={0.5} /> */}
-            <ambientLight intensity={0.6} />
-            {/* <spotLight
+          <div className='container-left'>
+            <Canvas className='planet-model'>
+              <CameraControls zoomedInDistance={165} zoomedOutDistance={275} />
+              {/* <directionalLight intensity={0.5} /> */}
+              <ambientLight intensity={0.6} />
+              {/* <spotLight
           intensity={8}
           position={[3, 3, 3]}
           angle={45}
           penumbra={1}
           color="#F28C38"
         /> */}
-            <Suspense>
-              <RenderPlanet planets='venus' />
-            </Suspense>
-            <Stars
-              radius={150} // Radius of the inner sphere (default=100)
-              depth={70} // Depth of area where stars should fit (default=50)
-              count={4000} // Amount of stars (default=5000)
-              factor={5} // Size factor (default=4)
-            />
-          </Canvas>
-        </div>
-      </main>
+              <Suspense>
+                <RenderPlanet planets='venus' />
+              </Suspense>
+              <Stars
+                radius={150} // Radius of the inner sphere (default=100)
+                depth={70} // Depth of area where stars should fit (default=50)
+                count={4000} // Amount of stars (default=5000)
+                factor={5} // Size factor (default=4)
+              />
+            </Canvas>
+          </div>
+        </main>
+      </FullScreen>
     </div>
   );
 }

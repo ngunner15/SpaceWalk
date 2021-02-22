@@ -1,0 +1,29 @@
+.news-container {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.news {
+  background-color: #13131b;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: solid 4px #86c232;
+  border-radius: 15px;
+  color: floralwhite;
+  padding: 4%;
+  margin-bottom: 5%;
+}
+
+.news-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.news-image {
+  border-radius: 5px;
+  margin-left: 2%;
+  max-width: 25%;
+  max-height: 250px;
+  flex-basis: 25%;
+}

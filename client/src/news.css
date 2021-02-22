@@ -1,6 +1,11 @@
+@font-face {
+  font-family: 'Nasalization';
+  src: local('Nasalization'), url(./fonts/nasalization-rg.ttf) format('truetype');
+}
+
 .news-container {
-  margin-left: 15%;
-  margin-right: 15%;
+  margin: 5% 15% 5% 15%;
+  font-family: 'Nasalization', sans-serif;
 }
 
 .news {
@@ -13,6 +18,12 @@
   color: floralwhite;
   padding: 4%;
   margin-bottom: 5%;
+  opacity: 75%;
+}
+
+.news:hover {
+  opacity: 100%;
+  box-shadow: 5px 10px 5px #61892f;
 }
 
 .news-content {

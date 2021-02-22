@@ -33,7 +33,6 @@ export default function News(props) {
   return (
     <div className="App">
       <Navbar />
-      <h1>News</h1>
       <div className="news-container">
         {data.isLoading ? (
           data.articles.map(article => {

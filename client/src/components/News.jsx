@@ -28,19 +28,21 @@ export default function News(props) {
         });
       })
   }, []);
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="App">
       <Navbar />
-      <div className="news-container">
-        {data.isLoading ? (
-          data.articles.map(article => {
-            return <NewsArticle data={article} key={article.url} />
-          })
-        ) : (
-            <p>Loading...</p>
-          )}
+      <div className="news-background">
+        <div className="news-container">
+          {data.isLoading ? (
+            data.articles.map(article => {
+              return <NewsArticle data={article} key={article.url} />
+            })
+          ) : (
+              <p>Loading...</p>
+            )}
+        </div>
       </div>
     </div>
   )

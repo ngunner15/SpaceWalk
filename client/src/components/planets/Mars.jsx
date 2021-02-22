@@ -1,62 +1,48 @@
-import React, { Suspense, useState, useEffect } from "react";
-import { Canvas } from "react-three-fiber";
-import {  Stars } from "@react-three/drei";
+import React, { Suspense, useState, useEffect } from 'react';
+import { Canvas } from 'react-three-fiber';
+import { Stars } from '@react-three/drei';
 import CameraControls from './CameraControls';
-import RenderPlanet from './RenderPlanet'
+import RenderPlanet from './RenderPlanet';
 import axios from 'axios';
 import Navbar from '../Navbar';
 
 export default function Mars(props) {
-
   const [data, setData] = useState({});
 
   useEffect(() => {
-    const planet = "mars"
-    axios.get(`/getPlanetDetails/${planet}`)
-    .then(result => {
+    const planet = 'mars';
+    axios.get(`/getPlanetDetails/${planet}`).then((result) => {
       setData(result.data);
     });
-  }, [])
+  }, []);
 
   function getWeather() {
-    axios.get(`/getMarsWeather`)
-      .then(result => {
-        const {
-          sol_keys,
-          validity_checks,
-          ...solData
-        } = result.data
-        console.log(solData);
-      })
-    //           const temp = Object.entries(solData).map(([sol, data]) => {
-    //             return {
-    //               sol: sol,
-    //               // maxTemp: data.AT.mx,
-    //               // minTemp: data.AT.mn,
-    //               // windSpeed: data.HWS.av,
-    //               // windDirectionDegrees: data.WD.most_common.compass_degrees,
-    //               // windDirectionCardinal: data.WD.most_common.compass_point,
-    //               date: new Date(data.First_UTC)
-    //             }
-    //           })
+    axios.get(`/getMarsWeather`).then((result) => {
+      const { sol_keys, validity_checks, ...solData } = result.data;
+      console.log(solData);
+    });
   }
   getWeather();
 
   return (
-    <div className="App">
+    <div className='App'>
       <Navbar />
       <main>
         <div className='container-right'>
-          <div className="planet-details">
-            <h1>I am Mars</h1>
+          <h2>Planet Information:</h2>
+          <div className='planet-details'>
             <div>Moons:</div>
             <div>Min Temp: -129°C</div>
             <div>Max Temp: 20°C</div>
             <div>Perihelion:{data.perihelion}km</div>
             <div>Aphelion:{data.aphelion}km</div>
             <div>Eccentricity:{data.eccentricity}</div>
-            <div>Gravity:{data.gravity}m/s<sup>2</sup></div>
-            <div>Density:{data.density}g/cm<sup>3</sup></div>
+            <div>
+              Gravity:{data.gravity}m/s<sup>2</sup>
+            </div>
+            <div>
+              Density:{data.density}g/cm<sup>3</sup>
+            </div>
             <div>Equatorial Radius:{data.equaRadius}km</div>
             <div>Polar Radius:{data.polarRadius}km</div>
             <div>Sideral Orbit:{data.sideralOrbit}days</div>
@@ -65,12 +51,12 @@ export default function Mars(props) {
           </div>
         </div>
         <div className='container-left'>
-          <Canvas className="planet-model">
+          <Canvas className='planet-model'>
             <CameraControls zoomedInDistance={170} zoomedOutDistance={280} />
             {/* <directionalLight intensity={0.5} /> */}
             <ambientLight intensity={0.6} />
             <Suspense>
-              <RenderPlanet planets="mars" />
+              <RenderPlanet planets='mars' />
             </Suspense>
             <Stars
               radius={150} // Radius of the inner sphere (default=100)
@@ -82,5 +68,5 @@ export default function Mars(props) {
         </div>
       </main>
     </div>
-  )
+  );
 }

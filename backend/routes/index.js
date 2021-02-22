@@ -134,22 +134,34 @@ module.exports = (db) => {
       });
   });
 
-  // add into favourites
-  // router.post("/favourites", (req, res) => {
-  //   const userId = req.session.user_id;
-  //   const photo_id = req.body.photo_id;
-  //   const queryString =`
-  //   INSERT INTO favourite_listings (user_id, photo_id)
-  //   VALUES ($1, $2);
-  //   `;
-  //   db.query(queryString, [userId, photo_id])
-  //     .then(data => {
-  //       res.status(200).send(200);
-  //     })
-  //     .catch(err => {
-  //       res.status(500).send({ error: err.message });
-  //     });
-  // });
+  // search
+  router.get("/photossearch", async (req, res) => {
+    try {
+      const queryString =`SELECT * FROM photos WHERE title ILIKE $1;`
+
+      const photos = await db.query(queryString, [`%${req.query.title}%`])
+      res.json(photos.rows)
+    
+    } catch (err) {
+      console.error(err.message);
+    }
+  });
+
+  //add into favourites
+  router.post("/favourites", (req, res) => {
+    const queryString =`
+    INSERT INTO favourites (user_id, photo_id)
+    VALUES ($1, $2);
+    `;
+    db.query(queryString, [1, req.body.key])
+      .then(data => {
+        res.status(200).send(200);
+        console.log("req.body.key IS " + req.body.key)
+      })
+      .catch(err => {
+        res.status(500).send({ error: err.message });
+      });
+  });
 
   // delete the selected favourite photo
   router.delete("/favourites/:id", (req, res) => {

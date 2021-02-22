@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from './Navbar';
 import NewsArticle from './NewsArticle';
+import '../news.css';
 
 export default function News(props) {
   const [data, setData] = useState({
@@ -33,7 +34,7 @@ export default function News(props) {
     <div className="App">
       <Navbar />
       <h1>News</h1>
-      <div>
+      <div className="news-container">
         {data.isLoading ? (
           data.articles.map(article => {
             return <NewsArticle data={article} key={article.url} />

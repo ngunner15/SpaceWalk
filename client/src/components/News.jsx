@@ -10,7 +10,7 @@ export default function News(props) {
   });
 
   useEffect(() => {
-    axios.get(`https://newsapi.org/v2/everything?domains=nasa.gov&language=en&sortBy=publishedAt&apiKey=280e8138c1c44bbd881f4334f332988a`)
+    axios.get(`/getNews`)
       .then(response => {
         return response.data.articles.map(article => ({
           date: article.publishedAt,

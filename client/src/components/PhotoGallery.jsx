@@ -22,9 +22,9 @@ export default function PhotoGallery(props) {
 
   function addFav(favid) {
     axios
-      .post("http://localhost:3001/favourites", { data: { key: favid }})
-      .then((result) => {
-        // do nothing
+      .post("http://localhost:3001/favourites",  {params : favid })
+      .then(() => {
+        // do nothing in browser console
       })
       .catch((err) => {
         console.log(err);
@@ -76,7 +76,7 @@ export default function PhotoGallery(props) {
               {photo.description}
             </p>
             <div className="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-              <button onClick={() => addFav(photo.id)} className="btn btn-primary" type="button">Favourite</button>
+              <button className="btn btn-primary" type="button" onClick={() => addFav(photo.id)}>Favourite</button>
               <div className="badge badge-danger px-3 rounded-pill font-weight-normal">{photo.posted_date.split('T')[0]}
               </div>
             </div>

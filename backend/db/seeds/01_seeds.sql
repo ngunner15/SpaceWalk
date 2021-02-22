@@ -3,15 +3,15 @@ INSERT INTO users (username, password, is_admin) VALUES
 ('ninja', 'ninja123', false);
 
 INSERT INTO planets (name, description) VALUES
-('Mercury', '01 A description or fun fact.'),
-('Venus', '02 A description or fun fact.'),
-('Earth', '03 A description or fun fact.'),
-('Mars', '04 A description or fun fact.'),
-('Jupiter', '05 A description or fun fact.'),
-('Saturn', '06 A description or fun fact.'),
-('Uranus', '07 A description or fun fact.'),
-('Neptune', '08 A description or fun fact.'),
-('Pluto', '09 A description or fun fact.');
+('Mercury', '01 Your weight on Mercury would be 38% of your weight on Earth.'),
+('Venus', '02 Venus is named after the Roman goddess of love and beauty.'),
+('Earth', '03 Earth is mostly iron, oxygen and silicon.'),
+('Mars', '04 Mars has a volcano called Olympus Mons. Standing a whopping 24 kilometres high, it’s about three times the height of Mount Everest!'),
+('Jupiter', '05 Jupiter cannot become a star.'),
+('Saturn', '06 Saturn has only been visited 4 times by spacecraft.'),
+('Uranus', '07 Uranus is an Ice Giant planet and nearly four times larger than Earth.'),
+('Neptune', '08 Neptune has the Strongest Winds in the Solar System.'),
+('Pluto', '09 Pluto was reclassified from a planet to a dwarf planet in 2006.');
 
 INSERT INTO photos (title, description, url, posted_date) VALUES
 ('Bubble Nebula', 'Stunningly beautiful.', 'https://i.imgur.com/k0kEQc4.jpg', '2020-01-01'),

@@ -33,16 +33,16 @@ module.exports = app;
 
 app.get('/getEarthWeather/:city', async (req, res) => {
   await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${req.params.city}&units=metric&APPID=${process.env.EARTH_KEY}`)
-        .then(result => {
-          res.json(result.data);
-        });
+    .then(result => {
+      res.json(result.data);
+    });
 })
 
 app.get('/getMarsWeather', async (req, res) => {
   await axios.get(`https://api.nasa.gov/insight_weather/?api_key=${process.env.NASA_KEY}&feedtype=json&ver=1.0`)
-        .then(result => {
-          res.json(result.data);
-        });
+    .then(result => {
+      res.json(result.data);
+    });
 })
 
 app.get('/getPictureOfDay', async (req, res) => {
@@ -61,7 +61,14 @@ app.get('/getPictureOfDate/:date', async (req, res) => {
 
 app.get('/getPlanetDetails/:planet', async (req, res) => {
   await axios.get(`https://api.le-systeme-solaire.net/rest/bodies/${req.params.planet}`)
-        .then(result => {
-          res.json(result.data);
-        });
+    .then(result => {
+      res.json(result.data);
+    });
+})
+
+app.get('/getNews', async (req, res) => {
+  await axios.get(`https://newsapi.org/v2/everything?domains=nasa.gov&language=en&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}`)
+  .then(result => {
+    res.json(result.data);
+  });
 })

@@ -29,8 +29,8 @@ export default function Mars(props) {
       <Navbar />
       <main>
         <div className='container-right'>
+          <h2>Planet Information:</h2>
           <div className='planet-details'>
-            <h1>I am Mars</h1>
             <div>Moons:</div>
             <div>Min Temp: -129°C</div>
             <div>Max Temp: 20°C</div>

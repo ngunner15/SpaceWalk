@@ -21,6 +21,7 @@ export default function Mercury(props) {
       <Navbar />
       <main>
         <div className='container-right'>
+          <h2>Planet Information:</h2>
           <div className='planet-details'>
             <div>Moons:{data.moons}</div>
             <div>Min Temp: -184°C</div>

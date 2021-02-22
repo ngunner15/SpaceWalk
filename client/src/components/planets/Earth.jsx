@@ -34,8 +34,8 @@ export default function Earth(props) {
       <Navbar />
       <main>
         <div className='container-right'>
+          <h2>Planet Information:</h2>
           <div className='planet-details'>
-            <h2>I am Earth</h2>
             <div>Moons:</div>
             <div>Perihelion:{data.perihelion}km</div>
             <div>Aphelion:{data.aphelion}km</div>

@@ -12,6 +12,7 @@ export default function Earth(props) {
   const [city, setCity] = useState('');
   const [weather, setWeather] = useState({});
   const [data, setData] = useState({});
+  const [description, setDescription] = useState({});
 
   const handle = useFullScreenHandle();
 
@@ -19,6 +20,9 @@ export default function Earth(props) {
     const planet = 'earth';
     axios.get(`/getPlanetDetails/${planet}`).then((result) => {
       setData(result.data);
+    });
+    axios.get(`/planets/3`).then((res) => {
+      setDescription(res.data[0]);
     });
   }, []);
 
@@ -55,6 +59,7 @@ export default function Earth(props) {
               <div>Sideral Orbit:{data.sideralOrbit}days</div>
               <div>Sideral Rotation:{data.sideralRotation}hours</div>
               <div>Axial Tilt:{data.axialTilt}°</div>
+              <div>Fun Fact:{description.description}</div>
               <div>Enter a city's name:</div>
               <div className='search'>
                 <input

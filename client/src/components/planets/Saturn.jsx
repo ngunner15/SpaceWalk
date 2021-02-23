@@ -9,6 +9,7 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 export default function Saturn(props) {
   const [data, setData] = useState({});
+  const [description, setDescription] = useState({});
 
   const handle = useFullScreenHandle();
 
@@ -16,6 +17,9 @@ export default function Saturn(props) {
     const planet = 'saturn';
     axios.get(`/getPlanetDetails/${planet}`).then((result) => {
       setData(result.data);
+    });
+    axios.get(`/planets/6`).then((res) => {
+      setDescription(res.data[0]);
     });
   }, []);
 
@@ -43,6 +47,7 @@ export default function Saturn(props) {
               <div>Sideral Orbit:{data.sideralOrbit}days</div>
               <div>Sideral Rotation:{data.sideralRotation}hours</div>
               <div>Axial Tilt:{data.axialTilt}°</div>
+              <div>Fun Fact:{description.description}</div>
             </div>
             <button className="fullscreen-button" onClick={handle.enter}>
               FullScreen Mode

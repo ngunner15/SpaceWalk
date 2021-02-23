@@ -98,6 +98,22 @@ module.exports = (db) => {
     }
   });
 
+    // show a planet description as fun fact
+    router.get("/planets/:id", (req, res) => {
+      let queryString = `
+      SELECT description FROM planets
+      WHERE id = $1;
+      `;
+      db.query(queryString, [req.params.id])
+        .then(data => {
+          const planetDescription = data.rows
+          return res.json(planetDescription);
+      })
+      .catch(err => {
+        res.status(500).send({ error: err.message });
+      });
+    });
+
   // get photos gallery page
   router.get("/photos", (req, res) => {
     let queryString = `

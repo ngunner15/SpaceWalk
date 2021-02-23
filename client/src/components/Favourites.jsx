@@ -1,5 +1,7 @@
 import React, {Fragment, useEffect, useState} from "react";
 import axios from 'axios';
+import '../PhotoGallery.css';
+import 'tachyons';
 
 export default function Favourites() {
 
@@ -32,10 +34,10 @@ export default function Favourites() {
   }
 
   return (
-    <div>
-      <h1>Welcome to username's gallery</h1>
+    <div className="page-back">
+      <h1 className="title">Welcome to the favourites page</h1>
       {favourites.map(favourite => (
-      <div className="col-xl-3 col-lg-4 col-md-6 mb-4" id="fav-container">
+      <div className="tc bg-light-blue dib br3 pa3 ma2 grow bw2 shadow-4 col-xl-3 col-lg-4 col-md-6 mb-4" id="fav-container">
         <div className="bg-white rounded shadow-sm">
           <img key={favourite.id} src={favourite.url} alt="main-photo" className="img-fluid card-img-top" />
           <div className="p-4">
@@ -54,7 +56,7 @@ export default function Favourites() {
         </div>
       </div>
       ))}
-       <div className="py-4 text-right"><a href="#" className="btn btn-light px-4 py-2">Go to top</a></div>
+      <div className="py-4 text-right"><a href="#" className="btn btn-light px-4 py-2">Go to top</a></div>
     </div>
   );
 }

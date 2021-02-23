@@ -1,5 +1,6 @@
 import React, {Fragment, useEffect, useState} from "react";
 import EditPlanet from "./EditPlanet"
+import '../Admin.scss'
 
 export default function Admin(props) {
 
@@ -27,8 +28,8 @@ export default function Admin(props) {
     <Fragment>
       <h1>Welcome Admin, to the dashboard!</h1>
       {" "}
-      <table className="table mt-5 text-center">
-        <thead>
+      <table className="table mt-5 text-center responsive-table">
+        <thead className="table-header">
           <tr>
             <th>Planet</th>
             <th>Description</th>

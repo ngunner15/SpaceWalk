@@ -22,7 +22,8 @@ export default function Favourites() {
     getFavourites();
   }, []);
 
-  function removeFavourite(favid) {
+  const removeFavourite = (favid) => {
+    console.log(favid)
     axios
       .delete(`http://localhost:3001/favourites/${window.location.pathname.split('/')[2]}`, { data: { key: favid }})
       .then((result) => {
@@ -36,10 +37,10 @@ export default function Favourites() {
   return (
     <div className="page-back">
       <h1 className="title">Welcome to the favourites page</h1>
-      {favourites.map(favourite => (
-      <div className="tc bg-light-blue dib br3 pa3 ma2 grow bw2 shadow-4 col-xl-3 col-lg-4 col-md-6 mb-4" id="fav-container">
+      {favourites.map((favourite, index) => (
+      <div className="tc bg-light-blue dib br3 pa3 ma2 grow bw2 shadow-4 col-xl-3 col-lg-4 col-md-6 mb-4" key={index} id="fav-container">
         <div className="bg-white rounded shadow-sm">
-          <img key={favourite.id} src={favourite.url} alt="main-photo" className="img-fluid card-img-top" />
+          <a href={favourite.url}><img key={favourite.id} src={favourite.url} alt="main-photo" className="img-fluid card-img-top" /></a>
           <div className="p-4">
             <h3>
               {favourite.title}

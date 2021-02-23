@@ -1,19 +1,19 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import Home from './components/Home';
-import Login from "./components/Login";
-import Logout from "./components/Logout";
-import Admin from "./components/Admin";
-import Mercury from "./components/planets/Mercury";
+import Login from './components/Login';
+import Logout from './components/Logout';
+import Admin from './components/Admin';
+import Mercury from './components/planets/Mercury';
 import Venus from './components/planets/Venus';
 import Earth from './components/planets/Earth';
 import Mars from './components/planets/Mars';
-import Jupiter from "./components/planets/Jupiter";
-import Saturn from "./components/planets/Saturn";
-import Uranus from "./components/planets/Uranus";
-import Neptune from "./components/planets/Neptune";
-import Pluto from "./components/planets/Pluto";
+import Jupiter from './components/planets/Jupiter';
+import Saturn from './components/planets/Saturn';
+import Uranus from './components/planets/Uranus';
+import Neptune from './components/planets/Neptune';
+import Pluto from './components/planets/Pluto';
 import Apod from './components/Apod';
 import PhotoGallery from './components/PhotoGallery';
 import Favourites from './components/Favourites';
@@ -22,12 +22,11 @@ import News from './components/News';
 import './App.css';
 
 function App() {
-
   return (
     <div className='App'>
       <Router>
         <Switch>
-          <Route exact path='/' >
+          <Route exact path='/'>
             <Home />
           </Route>
           <Route path='/mercury'>
@@ -57,10 +56,10 @@ function App() {
           <Route path='/pluto'>
             <Pluto />
           </Route>
-          <Route path="/apod">
+          <Route path='/apod'>
             <Apod />
           </Route>
-          <Route path="/photos">
+          <Route path='/photos'>
             <PhotoGallery />
           </Route>
           <Route path='/login'>

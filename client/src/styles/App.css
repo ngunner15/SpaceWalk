@@ -1,0 +1,86 @@
+@font-face {
+  font-family: 'Nasalization';
+  src: local('Nasalization'), url(../fonts/nasalization-rg.ttf) format('truetype');
+}
+
+.App {
+  width: 100%;
+  height: 100%;
+  font-family: 'Nasalization', sans-serif;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #273036;
+  color: floralwhite;
+}
+
+.container-left {
+  border-radius: 10px;
+  border: 4px solid #32C272;
+  width: 60%;
+  height: 85%;
+  transition: all .2s ease-in-out;
+}
+
+.container-right {
+  border-radius: 10px;
+  border: 4px solid #32C272;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 85%;
+  transition: all .2s ease-in-out;
+}
+
+.planet-details {
+  color: floralwhite;
+  margin: 1rem;
+  border-radius: 10px;
+  border: 2px solid #32C272;
+  padding: 15px;
+  width: 80%;
+  height: 60%;
+  overflow-x: auto;
+}
+
+.container-right:hover,
+.container-left:hover {
+  box-shadow: 5px 5px 2px #42B375;
+  transform: scale(1.1);
+}
+
+.fullscreen {
+  width: 100%;
+  height: 100%;
+}
+
+.fullscreen-enabled button.fullscreen-button {
+  visibility: hidden;
+}
+
+.fullscreen-button {
+  color: floralwhite;
+  font-size: 1.5rem;
+  border: 1.5px solid #32C272;
+  border-radius: 50px;
+  background-color: #32C272;
+  outline: none;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.fullscreen-button:hover {
+  transform: scale(1.1);
+}
+
+.fullscreen-button:focus {
+  outline: none;
+}

@@ -6,7 +6,9 @@ import 'tachyons';
 export default function PhotoGallery(props) {
   const [name, setName] = useState("");
   const [photos, setPhotos] = useState([]);
+  const [addedFav, setAddedFav] = useState({});
 
+  // get request to photos database, return json
   const getPhotos = async () => {
     try {
       const response = await fetch("http://localhost:3001/photos");
@@ -18,11 +20,31 @@ export default function PhotoGallery(props) {
     }
   };
 
+  // photos that are already favourited have their button hidden
+  const getFavourites = async () => {
+    try {
+      // only works for admin user
+      const response = await fetch(`http://localhost:3001/favourites/1`);
+      const jsonData = await response.json();
+      const favs = {}
+      console.log(jsonData)
+      jsonData.forEach((fav) => {
+        favs[fav.id] = true
+      })
+      setAddedFav(favs)
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
   useEffect(() => {
     getPhotos();
+    getFavourites();
   }, []);
 
+  // add photo into favourites database
   function addFav(favid) {
+    setAddedFav({...addedFav, [favid]:true})
     axios
       .post("http://localhost:3001/favourites",  {params : favid })
       .then(() => {
@@ -33,6 +55,7 @@ export default function PhotoGallery(props) {
       });
   }
 
+  // search the title of a photo
   const onSubmitForm = async e => {
     e.preventDefault();
     try {
@@ -66,10 +89,10 @@ export default function PhotoGallery(props) {
         <button className="btn btn-success">Submit</button>
       </form>
 
-      {photos.map(photo => (
-      <div className="tc bg-lightest-blue dib br3 pa3 ma2 grow bw2 shadow-4 col-xl-3 col-lg-4 col-md-6 mb-4" id="fav-container">
+      {photos.map((photo, index) => (
+      <div className="tc bg-lightest-blue dib br3 pa3 ma2 grow bw2 shadow-4 col-xl-3 col-lg-4 col-md-6 mb-4" key={index} id="fav-container">
         <div className="bg-white rounded shadow-sm">
-          <img key={photo.id} src={photo.url} alt="main-photo" className="img-fluid card-img-top" />
+          <a href={photo.url}><img key={photo.id} src={photo.url} alt="main-photo" className="img-fluid card-img-top" /></a>
           <div className="p-4">
             <h3>
               {photo.title}
@@ -78,7 +101,7 @@ export default function PhotoGallery(props) {
               {photo.description}
             </p>
             <div className="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-              <button className="btn btn-primary" type="button" onClick={() => addFav(photo.id)}>Favourite</button>
+              {!addedFav[photo.id] && <button className="btn btn-primary" type="button" onClick={() => addFav(photo.id)}>Favourite</button>}
               <div className="badge badge-danger px-3 rounded-pill font-weight-normal">{photo.posted_date.split('T')[0]}
               </div>
             </div>

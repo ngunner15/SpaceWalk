@@ -82,6 +82,7 @@ module.exports = (db) => {
       });
   });
 
+  // edit a planet description
   router.put("/planets/:id", async (req, res) => {
     try {
       const { id } = req.params;
@@ -97,6 +98,23 @@ module.exports = (db) => {
     }
   });
 
+  // show a planet description as fun fact
+  router.get("/planets/:id", (req, res) => {
+    let queryString = `
+    SELECT description FROM planets
+    WHERE id = $1;
+    `;
+    db.query(queryString, [req.params.id])
+      .then(data => {
+        const planetDescription = data.rows
+        return res.json(planetDescription);
+    })
+    .catch(err => {
+      res.status(500).send({ error: err.message });
+    });
+  });
+
+  // get photos gallery page
   router.get("/photos", (req, res) => {
     let queryString = `
     SELECT * FROM photos;
@@ -113,6 +131,7 @@ module.exports = (db) => {
       });
   });
 
+  // get a user's favourites when visiting the url
   router.get("/favourites/:id", (req, res) => {
     let userId = req.params.id;
 
@@ -134,7 +153,7 @@ module.exports = (db) => {
       });
   });
 
-  // search
+  // search by title on the photos page
   router.get("/photossearch", async (req, res) => {
     try {
       const queryString =`SELECT * FROM photos WHERE title ILIKE $1;`
@@ -147,16 +166,16 @@ module.exports = (db) => {
     }
   });
 
-  //add into favourites
+  //after clicking the button, add the photo into favourites
   router.post("/favourites", (req, res) => {
     const queryString =`
     INSERT INTO favourites (user_id, photo_id)
     VALUES ($1, $2);
     `;
-    db.query(queryString, [1, req.body.key])
+    // req.body got passed in a params key
+    db.query(queryString, [1, req.body.params])
       .then(data => {
         res.status(200).send(200);
-        console.log("req.body.key IS " + req.body.key)
       })
       .catch(err => {
         res.status(500).send({ error: err.message });

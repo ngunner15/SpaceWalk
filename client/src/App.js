@@ -17,6 +17,7 @@ import Pluto from './components/planets/Pluto';
 import Apod from './components/Apod';
 import PhotoGallery from './components/PhotoGallery';
 import Favourites from './components/Favourites';
+import News from './components/News';
 
 import './App.css';
 
@@ -73,6 +74,9 @@ function App() {
           </Route>
           <Route path='/favourites'>
             <Favourites />
+          </Route>
+          <Route path='/news'>
+            <News />
           </Route>
         </Switch>
       </Router>

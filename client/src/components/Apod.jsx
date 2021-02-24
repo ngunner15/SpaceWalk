@@ -24,6 +24,7 @@ export default function Apod(props) {
 
   return (
     <div className='main-page'>
+      <Navbar />
       <div className='title'>
         <h1>🚀 View of the Day 🚀</h1>
       </div>

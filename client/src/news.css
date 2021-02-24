@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'Nasalization';
+  src: local('Nasalization'), url(./fonts/nasalization-rg.ttf) format('truetype');
+}
+
+.news-background {
+  background-image: url("./images/background_stars2.jpg");
+  background-repeat: round;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.news-container {
+  margin: 5% 15% 5% 15%;
+  font-family: 'Nasalization', sans-serif;
+}
+
+.news {
+  background-color: #13131b;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: solid 4px #61892f;
+  border-radius: 15px;
+  color: floralwhite;
+  padding: 4%;
+  margin-bottom: 5%;
+  opacity: 70%;
+  transition: all .2s ease-in-out;
+}
+
+.news:hover {
+  opacity: 100%;
+  box-shadow: 8px 8px 8px #61892f;
+  transform: scale(1.1);
+}
+
+.news-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.news-image {
+  border-radius: 5px;
+  margin-left: 2%;
+  max-width: 25%;
+  max-height: 25%;
+  flex-basis: 25%;
+}

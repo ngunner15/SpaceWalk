@@ -1,5 +1,7 @@
 import React, {Fragment, useEffect, useState} from "react";
 import EditPlanet from "./EditPlanet"
+import '../Admin.scss'
+import Navbar from './Navbar';
 
 export default function Admin(props) {
 
@@ -24,11 +26,13 @@ export default function Admin(props) {
   // console.log(JSON.stringify(planets));
 
   return (
-    <Fragment>
+    <div className="App">
+      <Navbar />
+      <Fragment>
       <h1>Welcome Admin, to the dashboard!</h1>
       {" "}
-      <table className="table mt-5 text-center">
-        <thead>
+      <table className="table mt-5 text-center responsive-table">
+        <thead className="table-header">
           <tr>
             <th>Planet</th>
             <th>Description</th>
@@ -47,6 +51,7 @@ export default function Admin(props) {
           ))}
         </tbody>
       </table>
-    </Fragment>
+      </Fragment>
+    </div>
   );
 }

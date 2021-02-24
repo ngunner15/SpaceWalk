@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from './Navbar';
 import NewsArticle from './NewsArticle';
-import '../news.css';
+import '../styles/news.css';
 
 export default function News(props) {
   const [data, setData] = useState({

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import { BrowserRouter as Router, Redirect } from 'react-router-dom';
 
-import '../login.css';
+import '../styles/login.css';
 
 export default function Login(props) {
   const [username, setUsername] = useState('');

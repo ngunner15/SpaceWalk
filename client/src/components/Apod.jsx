@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../apod.css';
+import '../styles/apod.css';
 import axios from 'axios';
 import Navbar from './Navbar';
 

@@ -1,6 +1,6 @@
 import React, {Fragment, useEffect, useState} from "react";
 import EditPlanet from "./EditPlanet"
-import '../Admin.scss'
+import '../styles/Admin.scss'
 import Navbar from './Navbar';
 
 export default function Admin(props) {

@@ -30,7 +30,7 @@ const Intro = styled.div`
   display: flex;
   border: 1px solid #474b4f;
   border-radius: 50px;
-  color: #61892f;
+  color: #32C272;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
@@ -52,9 +52,9 @@ const Button = styled(motion.button)`
   padding: 0.8rem 3rem;
   color: #fff;
   font-size: 1.5rem;
-  border: 1.5px solid #86c232;
+  border: 1.5px solid #32C272;
   border-radius: 50px;
-  background-color: #86c232;
+  background-color: #32C272;
   outline: none;
   cursor: pointer;
 `;

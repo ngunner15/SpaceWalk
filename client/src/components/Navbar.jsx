@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { Nav, NavDropdown, Navbar } from 'react-bootstrap';
+import '../styles/navbar.css';
 
 export default function Navigation(props) {
 
   const [token, setToken] = useState(localStorage.getItem("token"));
 
   return (
-    <Navbar bg="light" expand="lg">
-      <Navbar.Brand>SpaceWalk</Navbar.Brand>
+    <Navbar className="navbar" expand="lg">
+      <Navbar.Brand className="navbar-brand">SpaceWalk</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
+        <Nav className="mx-auto">
           {token && <Nav.Link eventKey="13" href="/logout">Logout</Nav.Link>}
           <Nav.Link eventKey="11" href="/apod">APOD</Nav.Link>
           {token ? <Nav.Link eventKey="12" href="/photos">Photos</Nav.Link> : <Nav.Link eventKey="12" href="/login">Photos</Nav.Link>}

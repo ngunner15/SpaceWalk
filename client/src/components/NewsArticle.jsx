@@ -1,5 +1,5 @@
 import React from "react";
-import '../news.css';
+import '../styles/news.css';
 
 export default function NewsArticle({ data }) {
   return (

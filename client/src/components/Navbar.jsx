@@ -14,7 +14,7 @@ export default function Navigation(props) {
           {token && <Nav.Link eventKey="13" href="/logout">Logout</Nav.Link>}
           <Nav.Link eventKey="11" href="/apod">APOD</Nav.Link>
           {token ? <Nav.Link eventKey="12" href="/photos">Photos</Nav.Link> : <Nav.Link eventKey="12" href="/login">Photos</Nav.Link>}
-          {token ? <Nav.Link eventKey="14" href="/favourites">Favourites</Nav.Link> : <Nav.Link eventKey="14" href="/login">Favourites</Nav.Link>}
+          {token ? <Nav.Link eventKey="14" href="/favourites/1">Favourites</Nav.Link> : <Nav.Link eventKey="14" href="/login">Favourites</Nav.Link>}
           <Nav.Link eventKey="13" href="/news">News</Nav.Link>
           <NavDropdown title="Planets" id="basic-nav-dropdown">
             <NavDropdown.Item eventKey="1" href="/mercury">Mercury</NavDropdown.Item>

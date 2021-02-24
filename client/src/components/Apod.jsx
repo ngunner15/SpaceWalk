@@ -23,11 +23,14 @@ export default function Apod(props) {
   };
 
   return (
+    <div className='App'>
+    <Navbar />
     <div className='main-page'>
       <div className='title'>
-        <h1>🚀 View of the Day 🚀</h1>
+        <h1>🚀 Picture Of The Day 🚀</h1>
       </div>
       <div className='container'>
+        <div className='container-date'>
         <label htmlFor='date'>Select date: </label>
         <input
           type='date'
@@ -38,22 +41,24 @@ export default function Apod(props) {
           onChange={(e) => setDate(e.target.value)}
           onSelect={search}
         />
+        </div>
       </div>
 
       <button className='apod-button' onClick={search}>
-        Press Button
+        Todays Picture
       </button>
       {data.media_type === 'video' ? (
-        <div>
+        <div className="apod-video">
           <p>Today you get to see a video!!!</p>
-          <a href={data.url}>Click here</a>
+          <a href={data.url} target="_blank">Click here</a>
         </div>
       ) : (
-        <div>
+        <div className="apod-image">
           <p>{data.explanation}</p>
-          <img src={data.hdurl}></img>
+          <img src={data.url}></img>
         </div>
       )}
+    </div>
     </div>
   );
 }

@@ -19,7 +19,7 @@ import PhotoGallery from './components/PhotoGallery';
 import Favourites from './components/Favourites';
 import News from './components/News';
 
-import './App.css';
+import './styles/App.css';
 
 function App() {
   return (

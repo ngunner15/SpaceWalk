@@ -23,38 +23,44 @@ export default function Apod(props) {
   };
 
   return (
-    <div className='main-page'>
+    <div className='App'>
       <Navbar />
-      <div className='title'>
-        <h1>🚀 View of the Day 🚀</h1>
-      </div>
-      <div className='container'>
-        <label htmlFor='date'>Select date: </label>
-        <input
-          type='date'
-          id='date'
-          min='2010-01-01'
-          max='2021-02-17'
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          onSelect={search}
-        />
-      </div>
+      <div className='main-page'>
+        <div className='title'>
+          <h1>🚀 Picture Of The Day 🚀</h1>
+        </div>
+        <div className='container'>
+          <div className='container-date'>
+            <label htmlFor='date'>Select date: </label>
+            <input
+              type='date'
+              id='date'
+              min='2010-01-01'
+              max='2021-02-17'
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              onSelect={search}
+            />
+          </div>
+        </div>
 
-      <button className='apod-button' onClick={search}>
-        Press Button
-      </button>
-      {data.media_type === 'video' ? (
-        <div>
-          <p>Today you get to see a video!!!</p>
-          <a href={data.url}>Click here</a>
-        </div>
-      ) : (
-        <div>
-          <p>{data.explanation}</p>
-          <img src={data.hdurl}></img>
-        </div>
-      )}
+        <button className='apod-button' onClick={search}>
+          Todays Picture
+        </button>
+        {data.media_type === 'video' ? (
+          <div className='apod-video'>
+            <p>Today you get to see a video!!!</p>
+            <a href={data.url} target='_blank'>
+              Click here
+            </a>
+          </div>
+        ) : (
+          <div className='apod-image'>
+            <p>{data.explanation}</p>
+            <img src={data.url}></img>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

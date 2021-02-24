@@ -95,7 +95,7 @@ export default function Earth(props) {
                 )}
             </div>
             <button className="fullscreen-button" onClick={handle.enter}>
-              FullScreen Mode
+              FullScreen
             </button>
           </div>
           <div className='container-left'>

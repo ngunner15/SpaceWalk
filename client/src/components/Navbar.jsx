@@ -18,7 +18,7 @@ export default function Navbar(props) {
       <Link to='/uranus'>Uranus</Link>
       <Link to='/neptune'>Neptune</Link>
       <Link to='/pluto'>Pluto</Link>
-      <Link to='/apod'>APOD</Link>
+      <Link to='/apod'>Picture Of The Day</Link>
       {token ? (
         <Link to='/photos'>Photos</Link>
       ) : (

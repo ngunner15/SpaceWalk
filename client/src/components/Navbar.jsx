@@ -6,7 +6,7 @@ export default function Navbar(props) {
   const [token, setToken] = useState(localStorage.getItem('token'));
 
   return (
-    <nav>
+    <nav className='navbar-items'>
       <Link to='/login'>Login</Link>
       {token && <Link to='/logout'>Logout</Link>}
       <Link to='/mercury'>Mercury</Link>

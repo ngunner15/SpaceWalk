@@ -3,6 +3,29 @@
 An educational web app for people to learn about our Solar System and see some cool stuff.
 Our project makes use of react-three-fiber to show 3D models of every planet. You can see NASA's Astronomy Picture Of the Day.
 
+## Screenshots
+
+### Home Page
+!["Screenshot of Home Page"]()
+
+### Admin Dashboard
+!["Screenshot of Admin Dashboard"]()
+
+### Admin Favorites Page
+!["Screenshot of Admin Favorites Page"]()
+
+### Planet Details of Venus
+!["Screenshot of Venus"]()
+
+### Planet Details of Earth
+!["Screenshot of Earth"]()
+
+### APOD(Astronomy Picture Of Day)
+!["Screenshot of Astronomy Picture Of Day"]()
+
+### News
+!["Screenshot of News"]()
+
 ## Technology
 
 Multi-page application built with modern React practices.
@@ -28,14 +51,41 @@ Back-End: Node, Express, PostgreSQL
 
 Install dependencies with `npm install`.
 
-## Running Client side Development Server
+### Running Client Side Development Server
 
 ```sh
 npm start
 ```
 
-## Running Backend side Development Server
+### Running Backend Side Development Server
 
 ```sh
 npm run dev
+```
+
+### Running Database Seeds
+
+```sh
+npm run db:reset
+```
+### Where to get API keys
+
+- Earth Weather
+```sh
+https://api.openweathermap.org/data/2.5/weather?q=Toronto&units=metric&APPID=EARTH_KEY
+```
+
+- APOD(Astronomy Picture Of Day)
+```sh
+https://api.nasa.gov/planetary/apod?api_key=NASA_KEY
+```
+
+- Planet Details
+```sh
+https://api.le-systeme-solaire.net/rest/bodies/mars
+```
+
+- News Component
+```sh
+https://newsapi.org/v2/everything?domains=nasa.gov&language=en&sortBy=publishedAt&apiKey=NEWS_KEY
 ```

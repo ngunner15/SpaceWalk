@@ -6,25 +6,25 @@ Our project makes use of react-three-fiber to show 3D models of every planet. Yo
 ## Screenshots
 
 ### Home Page
-!["Screenshot of Home Page"]()
+!["Screenshot of Home Page"](https://github.com/ngunner15/SpaceWalk/blob/master/client/docs/screenshots/spacewalk_home_page.png?raw=true)
 
 ### Admin Dashboard
-!["Screenshot of Admin Dashboard"]()
+!["Screenshot of Admin Dashboard"](https://github.com/ngunner15/SpaceWalk/blob/master/client/docs/screenshots/spacewalk_admin_dashboard.png?raw=true)
 
 ### Admin Favorites Page
-!["Screenshot of Admin Favorites Page"]()
+!["Screenshot of Admin Favorites Page"](https://github.com/ngunner15/SpaceWalk/blob/master/client/docs/screenshots/spacewalk_admin_fav_page.png?raw=true)
 
 ### Planet Details of Venus
-!["Screenshot of Venus"]()
+!["Screenshot of Venus"](https://github.com/ngunner15/SpaceWalk/blob/master/client/docs/screenshots/spacewalk_venus.png?raw=true)
 
 ### Planet Details of Earth
-!["Screenshot of Earth"]()
+!["Screenshot of Earth"](https://github.com/ngunner15/SpaceWalk/blob/master/client/docs/screenshots/spacewalk_earth.png?raw=true)
 
 ### APOD(Astronomy Picture Of Day)
-!["Screenshot of Astronomy Picture Of Day"]()
+!["Screenshot of Astronomy Picture Of Day"](https://github.com/ngunner15/SpaceWalk/blob/master/client/docs/screenshots/spacewalk_apod.png?raw=true)
 
 ### News
-!["Screenshot of News"]()
+!["Screenshot of News"](https://github.com/ngunner15/SpaceWalk/blob/master/client/docs/screenshots/spacewalk_news.png?raw=true)
 
 ## Technology
 

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Nav, NavDropdown, Navbar } from 'react-bootstrap';
 
 export default function Navigation(props) {
+
+  const [token, setToken] = useState(localStorage.getItem("token"));
 
   return (
     <Navbar bg="light" expand="lg">
@@ -9,9 +11,10 @@ export default function Navigation(props) {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link eventKey="10" href="/login">Login</Nav.Link>
+          {token && <Nav.Link eventKey="13" href="/logout">Logout</Nav.Link>}
           <Nav.Link eventKey="11" href="/apod">APOD</Nav.Link>
-          <Nav.Link eventKey="12" href="/photos">Photos</Nav.Link>
+          {token ? <Nav.Link eventKey="12" href="/photos">Photos</Nav.Link> : <Nav.Link eventKey="12" href="/login">Photos</Nav.Link>}
+          {token ? <Nav.Link eventKey="14" href="/favourites">Favourites</Nav.Link> : <Nav.Link eventKey="14" href="/login">Favourites</Nav.Link>}
           <Nav.Link eventKey="13" href="/news">News</Nav.Link>
           <NavDropdown title="Planets" id="basic-nav-dropdown">
             <NavDropdown.Item eventKey="1" href="/mercury">Mercury</NavDropdown.Item>

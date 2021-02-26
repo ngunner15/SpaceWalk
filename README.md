@@ -1,7 +1,7 @@
 # SpaceWalk
 
 An educational web app for people to learn about our Solar System and see some cool stuff.
-Our project makes use of react-three-fiber to show 3D models of every planet. You can see NASA's Astronomy Picture Of the Day.
+Our project makes use of **react-three-fiber** to show 3D models of every planet. **react-three-fiber** converts **three.js** to react based components. You can see NASA's Astronomy Picture Of the Day & latest news about NASA.
 
 ## Screenshots
 

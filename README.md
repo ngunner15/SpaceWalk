@@ -93,4 +93,6 @@ https://newsapi.org/v2/everything?domains=nasa.gov&language=en&sortBy=publishedA
 ### Project Management
 
 We utilized SCRUM method in Trello board to keep track of all the tasks of every team member.
-Here is the link - https://trello.com/b/kVpH5lXy/final-project-scrum
+```sh
+https://trello.com/b/kVpH5lXy/final-project-scrum
+```
